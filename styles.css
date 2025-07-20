@@ -2,11 +2,11 @@ html {
   overscroll-behavior-x: contain;
   box-sizing: border-box;
 
-  --1day: 0.5vh;
+  --1day: 0.5svh;
 }
 
 body {
-  margin: 0 5vh;
+  margin: 0 5svh;
   font-family: Verdana;
   overflow-y: hidden;
 }
@@ -36,14 +36,14 @@ i {
 
 #grid {
   display: grid;
-  grid-template-rows: repeat(9, 10vh) 5vh;
+  grid-template-rows: repeat(9, 10svh) 5svh;
   grid-template-columns:
-    min-content min-content calc(12vh + var(--1day) * 214 + 8vh)
-    2vh min-content 4vh;
+    min-content min-content calc(12svh + var(--1day) * 214 + 8svh)
+    2svh min-content 4svh;
 
   &::after {
     content: '';
-    width: 5vh;
+    width: 5svh;
     background: white;
     grid-column: -1;
   }
@@ -69,7 +69,7 @@ h1 {
           --1day
         ) * 31);
   font-size: smaller;
-  margin-left: 12vh;
+  margin-left: 12svh;
   background: linear-gradient(white 50%, transparent 50%);
 
   span {
@@ -155,7 +155,7 @@ h1 {
   display: grid;
   place-content: center left;
   white-space: nowrap;
-  padding-inline: 2vh 4vh;
+  padding-inline: 2svh 4svh;
   background: white;
 
   small {
@@ -186,28 +186,28 @@ h1 {
 }
 
 .game {
-  width: 16vh;
-  height: 16vh;
-  margin-top: -3vh;
+  width: 16svh;
+  height: 16svh;
+  margin-top: -3svh;
   display: grid;
-  box-shadow: 0 0 1vh white;
-  margin-left: calc(var(--day, 0) * var(--1day) + 5 * var(--1day) + 4vh);
+  box-shadow: 0 0 1svh white;
+  margin-left: calc(var(--day, 0) * var(--1day) + 5 * var(--1day) + 4svh);
   grid-row: calc(var(--stripe) * 2 + 1);
   grid-column: calc(var(--year, 2023) - 2020);
   position: relative;
 
   &:is([data-release]) {
-    margin-left: calc(var(--before, 0) * 18vh);
+    margin-left: calc(var(--before, 0) * 18svh);
   }
 
   &::before {
     content: attr(data-day);
     /* border-left: var(--b, 3px) dotted black; */
     width: 8px;
-    height: 100vh;
+    height: 100svh;
     position: absolute;
-    top: -100vh;
-    left: calc(8vh - 4px);
+    top: -100svh;
+    left: calc(8svh - 4px);
     background-image: linear-gradient(transparent, transparent 98%, white 98%),
       radial-gradient(black 2px, transparent 1px);
     background-size: 100% 100%, 100% 1%;
@@ -245,8 +245,8 @@ h1 {
 
   img {
     display: block;
-    width: 16vh;
-    height: 16vh;
+    width: 16svh;
+    height: 16svh;
     grid-row: 1;
     grid-column: 1;
     cursor: pointer;
@@ -254,7 +254,7 @@ h1 {
 
   &:has(img + img) {
     img {
-      width: 8vh;
+      width: 8svh;
       object-fit: cover;
     }
 
@@ -263,7 +263,7 @@ h1 {
     }
 
     img:nth-of-type(2) {
-      margin-left: 8vh;
+      margin-left: 8svh;
       object-position: right;
     }
   }
