@@ -12,9 +12,8 @@ html {
 }
 
 body {
-  margin: 0 5svh;
+  margin: 0;
   font-family: Verdana;
-  overflow-y: hidden;
 }
 
 h2,
@@ -38,6 +37,12 @@ i {
     color: white;
     background: black;
   }
+}
+
+#wrapper {
+  padding-inline: 5svh;
+  height: 100svh;
+  overflow-x: auto;
 }
 
 #grid {
