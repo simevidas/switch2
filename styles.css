@@ -198,7 +198,6 @@ h1 {
   width: 16svh;
   height: 16svh;
   margin-top: -3svh;
-  display: grid;
   box-shadow: 0 0 1svh white;
   margin-left: calc(var(--day, 0) * var(--1day) + 5 * var(--1day) + 4svh);
   grid-row: calc(var(--stripe) * 2 + 1);
@@ -253,16 +252,15 @@ h1 {
 
   img {
     display: block;
-    width: 16svh;
-    height: 16svh;
-    grid-row: 1;
-    grid-column: 1;
+    max-width: 100%;
     cursor: pointer;
   }
 
   &:has(img + img) {
     img {
-      width: 8svh;
+      float: left;
+      width: 50%;
+      aspect-ratio: 1/2;
       object-fit: cover;
     }
 
@@ -271,7 +269,6 @@ h1 {
     }
 
     img:nth-of-type(2) {
-      margin-left: 8svh;
       object-position: right;
     }
   }
