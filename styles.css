@@ -246,6 +246,7 @@ h1 {
 
   &:is([data-release])::after {
     content: attr(data-release);
+    display: block;
     text-align: center;
     font-size: smaller;
   }
