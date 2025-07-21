@@ -211,7 +211,6 @@ h1 {
 
   &::before {
     content: attr(data-day);
-    /* border-left: var(--b, 3px) dotted black; */
     width: 8px;
     height: 100svh;
     position: absolute;
