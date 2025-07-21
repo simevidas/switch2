@@ -209,7 +209,7 @@ h1 {
     margin-left: calc(var(--before, 0) * 18svh);
   }
 
-  &::before {
+  &:is([data-day])::before {
     content: attr(data-day);
     width: 8px;
     height: 100svh;
