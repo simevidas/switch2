@@ -1,6 +1,11 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   overscroll-behavior-x: contain;
-  box-sizing: border-box;
   background: white;
 
   --1day: 0.5svh;
