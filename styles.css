@@ -43,6 +43,7 @@ i:hover {
   padding-inline: 5svh;
   height: 100svh;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* needed for Safari (16?) */
 }
 
 #grid {
