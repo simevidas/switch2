@@ -223,9 +223,12 @@
     }
   });
 
-  document.addEventListener('fullscreenchange', () => {
+  let updateFullscreenSwitch = () => {
     document.querySelector('.switch').checked = Boolean(
       document.fullscreenElement
     );
-  });
+  };
+
+  document.addEventListener('fullscreenchange', updateFullscreenSwitch);
+  window.addEventListener('pageshow', updateFullscreenSwitch);
 }
