@@ -56,7 +56,6 @@ i:hover {
 }
 
 #wrapper {
-  padding-inline: 5svh 15svh;
   height: 100svh;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch; /* needed for Safari (16?) */
@@ -69,6 +68,7 @@ i:hover {
     min-content min-content calc(12svh + var(--1day) * 214 + 8svh)
     min-content;
   min-width: fit-content;
+  padding-inline: 5svh 15svh;
 }
 
 #grid::before {
