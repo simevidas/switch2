@@ -230,12 +230,18 @@
     }
   });
 
-  let updateFullscreenSwitch = () => {
-    document.querySelector('.switch').checked = Boolean(
-      document.fullscreenElement
-    );
-  };
+  {
+    let fullscreenSwitch = document.querySelector('.switch');
 
-  document.addEventListener('fullscreenchange', updateFullscreenSwitch);
-  window.addEventListener('pageshow', updateFullscreenSwitch);
+    if (document.fullscreenEnabled === false) {
+      fullscreenSwitch.closest('#fullscreen').hidden = true;
+    } else {
+      let updateFullscreenSwitch = () => {
+        fullscreenSwitch.checked = Boolean(document.fullscreenElement);
+      };
+
+      document.addEventListener('fullscreenchange', updateFullscreenSwitch);
+      window.addEventListener('pageshow', updateFullscreenSwitch);
+    }
+  }
 }
