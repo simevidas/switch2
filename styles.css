@@ -322,17 +322,12 @@ h1 {
   align-items: center;
   gap: 1.3ch;
   width: fit-content;
-  font-size: smaller;
+  font-size: 0.6em;
+  color: var(--text-color);
   user-select: none;
-  position: relative;
-}
-
-/* increase target size */
-#fullscreen label::after {
-  content: '';
-  position: absolute;
-  inset: -1em;
+  padding: 1em 1.3em;
   border-radius: 999px;
+  border: 1px solid var(--text-color);
 }
 
 .switch {
