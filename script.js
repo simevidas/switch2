@@ -52,6 +52,7 @@
       release: '2025-06-05',
       price: [8],
       developer: 1,
+      noline: true,
     },
     {
       name: 'Metroid Prime 4: Beyond – Nintendo Switch 2 Edition',
@@ -70,6 +71,7 @@
       nso: true,
       developer: 1,
       multi: 2,
+      noline: true,
     },
     {
       name: 'Nintendo Switch 2 Welcome Tour',
@@ -79,6 +81,7 @@
       price: [1],
       developer: 1,
       multi: 1,
+      noline: true,
     },
     {
       name: 'Pokémon Legends: Z-A – Nintendo Switch 2 Edition',
@@ -183,7 +186,11 @@
   }
   ${
     isDated
-      ? `<div class="day">${game.release.slice(8, 10).replace(/^0/, '')}</div>`
+      ? game.noline === true
+        ? ''
+        : `<div class="day">${game.release
+            .slice(8, 10)
+            .replace(/^0/, '')}</div>`
       : `<div class="releases">${game.release}</div>`
   }
   ${
