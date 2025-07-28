@@ -267,20 +267,16 @@ h1 {
 
 .game .multi {
   position: absolute;
-  top: -2.1em;
-  right: -1.1em;
+  top: -2.05em;
+  right: -1.05em;
   font-family: system-ui;
   color: var(--text-color);
   font-size: 0.55em;
-  cursor: default;
   user-select: none;
-  border: 1em solid transparent;
-  border-radius: 999px;
-}
-
-.game .multi:hover {
   background: rgba(var(--bg-color-rgb), 0.5);
-  outline: 1px solid var(--text-color);
+  padding: 0.8em;
+  border-radius: 999px;
+  border: 1px solid var(--text-color);
 }
 
 .game .developer {
