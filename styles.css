@@ -313,7 +313,9 @@ h1 {
 
 #fullscreen {
   grid-column: 1;
-  grid-row: 10;
+  grid-row: 9;
+  align-self: end;
+  margin-bottom: -3svh;
 }
 
 #fullscreen label {
@@ -324,7 +326,7 @@ h1 {
   font-size: 0.6em;
   color: var(--text-color);
   user-select: none;
-  padding: 1em 1.3em;
+  padding: 0.8em 1.2em;
   border-radius: 999px;
   border: 1px solid var(--text-color);
 }
