@@ -233,7 +233,7 @@
   {
     let fullscreenSwitch = document.querySelector('.switch');
 
-    if (document.fullscreenEnabled === false) {
+    if (document.fullscreenEnabled !== true) {
       fullscreenSwitch.closest('#fullscreen').hidden = true;
     } else {
       let updateFullscreenSwitch = () => {
