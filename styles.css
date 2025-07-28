@@ -218,27 +218,26 @@ h1 {
   font-family: system-ui;
   font-size: smaller;
   text-align: center;
-  background: var(--bg-color);
-  background: linear-gradient(
-    transparent 20%,
-    var(--bg-color) 20%,
-    var(--bg-color) 80%,
-    transparent 80%
-  );
   padding: 0.05em;
 }
 
 /* the dotted line */
 .game:has(.day)::before {
   content: '';
-  width: 8px;
-  height: 100svh;
+  width: var(--size);
+  height: calc(100svh - 0.8em);
   position: absolute;
   top: -100svh;
-  left: calc(8svh - 4px);
+  left: calc(8svh - var(--size) / 2);
   z-index: -1;
-  background: radial-gradient(var(--text-color) 2px, transparent 1px);
-  background-size: 100% 1%;
+  background: radial-gradient(
+    var(--text-color) calc(var(--size) * var(--ratio) / 2),
+    transparent calc(var(--size) * (1 - var(--ratio)) / 2)
+  );
+  background-size: var(--size) var(--size);
+
+  --size: 7px;
+  --ratio: 0.6;
 }
 
 .game .price {
