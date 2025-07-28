@@ -39,20 +39,21 @@ h3 {
   margin: 0;
 }
 
-i {
-  font-style: normal;
+button.info {
   font-size: smaller;
+  line-height: 1;
+  padding: 0;
+  background: var(--bg-color);
   border: 1px solid currentColor;
   border-radius: 999px;
   display: inline-block;
   width: 1em;
   text-align: center;
-  cursor: default;
 }
 
-i:hover {
-  color: var(--bg-color);
-  background: var(--text-color);
+:is(.info, label, .multi):hover {
+  outline: 2px solid var(--text-color);
+  cursor: pointer;
 }
 
 #wrapper {
@@ -366,4 +367,8 @@ h1 {
 
 .switch:checked::after {
   justify-self: end;
+}
+
+dialog p {
+  max-width: 36em;
 }
