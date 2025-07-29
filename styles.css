@@ -151,11 +151,11 @@ h1 {
   filter: invert(var(--invert, 0));
 }
 
-#cat1 {
+:nth-child(1 of .cat) {
   grid-row: 3 / span 3;
 }
 
-#cat2 {
+:nth-child(2 of .cat) {
   grid-row: 7 / span 3;
 }
 
@@ -171,19 +171,19 @@ h1 {
   font-size: 69%;
 }
 
-#cat1a {
+:nth-child(1 of .subcat) {
   grid-row: 3;
 }
 
-#cat1b {
+:nth-child(2 of .subcat) {
   grid-row: 5;
 }
 
-#cat2a {
+:nth-child(3 of .subcat) {
   grid-row: 7;
 }
 
-#cat2b {
+:nth-child(4 of .subcat) {
   grid-row: 9;
 }
 
