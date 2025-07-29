@@ -309,10 +309,9 @@ h1 {
 }
 
 #fullscreen {
-  grid-column: 1;
-  grid-row: 9;
-  align-self: end;
-  margin-bottom: -3svh;
+  grid-column: 1 / span 2;
+  grid-row: 6;
+  align-self: center;
 }
 
 #fullscreen label {
