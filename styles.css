@@ -60,6 +60,7 @@ button.info {
   height: 100svh;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch; /* needed for Safari (16?) */
+  position: relative;
 }
 
 #grid {
@@ -366,6 +367,14 @@ h1 {
 
 .switch:checked::after {
   justify-self: end;
+}
+
+.version {
+  position: absolute;
+  left: 0.5ch;
+  bottom: 0;
+  font-family: system-ui;
+  font-size: 0.67em;
 }
 
 dialog p {
