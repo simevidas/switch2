@@ -1,4 +1,6 @@
 {
+  document.documentElement.style = `--u: ${window.innerHeight / 100}px`;
+
   // category: 1 exclusive, .1 retail, .2 digital-only; 2 “edition”, .1 “plus”, .2 plain
   // developer: 1 Nintendo, 2 subsidiary, 3 close partner, 4 other developer
   // price: [ game, upgrade pack ] in tens of USD/EUR
