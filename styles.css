@@ -41,12 +41,12 @@ h3 {
 button.info {
   font-size: smaller;
   line-height: 1;
-  padding: 0;
+  padding-inline: 0.5ch;
   background: var(--bg-color);
   border: 1px solid currentColor;
   border-radius: 999px;
   display: inline-block;
-  width: 1em;
+  width: fit-content;
   text-align: center;
 }
 
