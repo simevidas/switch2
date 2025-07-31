@@ -5,6 +5,8 @@
 }
 
 html {
+  font-family: Verdana;
+  font-size: calc(2.72 * var(--u));
   color: var(--text-color);
   background: var(--bg-color);
 
@@ -28,7 +30,6 @@ html {
 
 body {
   margin: 0;
-  font-family: Verdana;
 }
 
 h2,
@@ -56,7 +57,6 @@ button.info {
 }
 
 #wrapper {
-  font-size: calc(2.72 * var(--u));
   height: max(calc(100 * var(--u)), 100svh);
   overflow-x: auto;
   overscroll-behavior-x: contain;
