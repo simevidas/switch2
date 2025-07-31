@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Switch 2 games published by Nintendo</title>
+    <style>*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Verdana;
+  font-size: calc(2.72 * var(--u));
+  color: var(--text-color);
+  background: var(--bg-color);
+
+  --text-color: black;
+  --bg-color: white;
+  --bg-color-rgb: 255, 255, 255;
+  --stripe-color: #eee;
+
+  --u: 1svh;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --text-color: white;
+    --bg-color: black;
+    --bg-color-rgb: 0, 0, 0;
+    --stripe-color: #333;
+    --invert: 1;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+h2,
+h3 {
+  font: inherit;
+  line-height: 1;
+  margin: 0;
+}
+
+button.info {
+  font-size: smaller;
+  line-height: 1;
+  padding-inline: 0.5ch;
+  background: var(--bg-color);
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  display: inline-block;
+  width: fit-content;
+  text-align: center;
+}
+
+:is(.info, label, .multi):hover {
+  outline: 2px solid var(--text-color);
+  cursor: pointer;
+}
+
+#wrapper {
+  height: max(calc(100 * var(--u)), 100svh);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch; /* needed for Safari (16?) */
+  position: relative;
+}
+
+#grid {
+  display: grid;
+  grid-template-rows: repeat(9, calc(10 * var(--u)));
+  grid-template-columns:
+    min-content min-content calc(
+      calc(12 * var(--u)) + var(--1day) * 214 + calc(8 * var(--u))
+    )
+    min-content;
+  min-width: fit-content;
+  padding-inline: calc(5 * var(--u)) calc(15 * var(--u));
+
+  --1day: calc(0.5 * var(--u));
+}
+
+#grid::before {
+  content: '';
+  grid-row: 1/-1;
+  grid-column: 3;
+  z-index: -1;
+  margin-top: calc(10 * var(--u));
+  background: repeating-linear-gradient(
+    transparent 0%,
+    transparent 12.5%,
+    var(--stripe-color) 12.5%,
+    var(--stripe-color) 25%
+  );
+}
+
+h1 {
+  font-size: 1.5em;
+  grid-row: 1 / span 2;
+  grid-column: 1 / span 3;
+  margin: 0;
+  align-self: center;
+  text-wrap: balance;
+}
+
+.months {
+  grid-row: 1;
+  grid-column: 3;
+  align-content: center;
+  display: grid;
+  grid-template-columns:
+    calc(var(--1day) * 30) calc(var(--1day) * 31) calc(var(--1day) * 31)
+    calc(var(--1day) * 30) calc(var(--1day) * 31) calc(var(--1day) * 30) calc(var(
+          --1day
+        ) * 31);
+  font-size: smaller;
+  margin-left: calc(12 * var(--u));
+  background: linear-gradient(var(--bg-color) 50%, transparent 50%);
+}
+
+.months span {
+  color: var(--bg-color);
+  background: var(--text-color);
+  text-align: center;
+  padding-bottom: 0.09em;
+  border-inline: 0.5px solid var(--bg-color);
+  border-block: 3px solid var(--bg-color);
+}
+
+.cat {
+  grid-column: 1;
+  display: grid;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: normal;
+  position: relative;
+  padding-right: 2.5em;
+}
+
+.cat h2 {
+  align-self: center;
+}
+
+.cat small {
+  font-size: 69%;
+}
+
+.cat::after {
+  content: '';
+  background: url('data:image/png;base64,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');
+  background-repeat: no-repeat; /* needed for Safari 16 */
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  aspect-ratio: 84/442;
+  filter: invert(var(--invert, 0));
+}
+
+:nth-child(1 of .cat) {
+  grid-row: 3 / span 3;
+}
+
+:nth-child(2 of .cat) {
+  grid-row: 7 / span 3;
+}
+
+.subcat {
+  grid-column: 2;
+  display: grid;
+  place-content: center left;
+  white-space: nowrap;
+  padding-inline: calc(2 * var(--u)) calc(4 * var(--u));
+}
+
+.subcat small {
+  font-size: 69%;
+}
+
+:nth-child(1 of .subcat) {
+  grid-row: 3;
+}
+
+:nth-child(2 of .subcat) {
+  grid-row: 5;
+}
+
+:nth-child(3 of .subcat) {
+  grid-row: 7;
+}
+
+:nth-child(4 of .subcat) {
+  grid-row: 9;
+}
+
+.game {
+  width: calc(16 * var(--u));
+  height: calc(16 * var(--u));
+  margin-top: calc(-3 * var(--u));
+  box-shadow: 0 0 var(--u) var(--bg-color);
+  margin-left: calc(
+    var(--days, 0) * var(--1day) + 5 * var(--1day) + calc(4 * var(--u))
+  );
+  grid-row: calc(var(--stripe) * 2 + 1);
+  grid-column: 3;
+  position: relative;
+}
+
+.game:has(.releases) {
+  margin-left: calc(
+    (var(--order) - 1) * calc(18 * var(--u)) + calc(2 * var(--u))
+  );
+  grid-column: 4;
+}
+
+.game .releases {
+  display: block;
+  text-align: center;
+  font-size: smaller;
+}
+
+.game .day {
+  position: absolute;
+  top: -1.13em;
+  left: 0;
+  right: 0;
+  width: fit-content;
+  margin-inline: auto;
+  font-family: system-ui;
+  font-size: smaller;
+  text-align: center;
+  padding: 0.05em;
+}
+
+/* the dotted line */
+.game:has(.day)::before {
+  content: '';
+  width: var(--size);
+  height: calc(calc(100 * var(--u)) - 0.8em);
+  position: absolute;
+  top: calc(-100 * var(--u));
+  left: calc(calc(8 * var(--u)) - var(--size) / 2);
+  z-index: -1;
+  background: radial-gradient(
+    var(--text-color) calc(var(--size) * var(--ratio) / 2),
+    transparent calc(var(--size) * (1 - var(--ratio)) / 2)
+  );
+  background-size: var(--size) var(--size);
+
+  --size: 7px;
+  --ratio: 0.6;
+}
+
+.game .price {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: var(--bg-color);
+  background: var(--text-color);
+  font-family: system-ui;
+  font-size: smaller;
+  word-spacing: -0.2em;
+  line-height: 1;
+  padding-inline: 0.05em;
+  border-top-left-radius: 3px;
+}
+
+.game.nso .price::after {
+  content: '↺';
+  font-size: 0.8em;
+  vertical-align: 0.08em;
+}
+
+.game img {
+  display: block;
+  max-width: 100%;
+}
+
+.game .multi {
+  position: absolute;
+  top: -2.05em;
+  right: -1.05em;
+  font-family: system-ui;
+  color: var(--text-color);
+  font-size: 0.55em;
+  user-select: none;
+  background: rgba(var(--bg-color-rgb), 0.5);
+  padding: 0.8em;
+  border-radius: 999px;
+  border: 1px solid var(--text-color);
+}
+
+.game .developer {
+  position: absolute;
+  left: -0.35em;
+  top: -0.41em;
+  font-style: normal;
+  color: white;
+  background: #e60012;
+  line-height: 0.9;
+  padding-inline: 0.04em 0.06em;
+  padding-bottom: 0.04em;
+  font-family: system-ui;
+  font-size: smaller;
+  border-radius: 0.45em;
+}
+
+.game .developer.d2 {
+  background: green;
+}
+
+.game .developer.d3 {
+  color: rosybrown;
+  background: var(--bg-color);
+  font-weight: bold;
+  left: -0.47em;
+  top: -0.57em;
+  font-family: Georgia;
+}
+
+#fullscreen {
+  grid-column: 1 / span 2;
+  grid-row: 6;
+  align-self: center;
+}
+
+#fullscreen label {
+  display: flex;
+  align-items: center;
+  gap: 1.3ch;
+  width: fit-content;
+  font-size: 0.6em;
+  color: var(--text-color);
+  user-select: none;
+  padding: 0.8em 1.2em;
+  border-radius: 999px;
+  border: 1px solid var(--text-color);
+}
+
+.switch {
+  --size: 1em;
+  --checked-color: limegreen;
+  --unchecked-color: gainsboro;
+
+  display: inline-grid;
+  width: calc(var(--size) * 1.55);
+  height: var(--size);
+  font-size: inherit;
+  margin: 0;
+  appearance: none;
+}
+
+.switch::before,
+.switch::after {
+  content: '';
+  grid-column: 1;
+  grid-row: 1;
+  border: 1px solid var(--text-color);
+  border-radius: 999px;
+}
+
+/* track */
+.switch::before {
+  background: var(--unchecked-color);
+}
+
+/* thumb */
+.switch::after {
+  width: var(--size);
+  background: var(--bg-color);
+}
+
+.switch:checked::before {
+  background: var(--checked-color);
+}
+
+.switch:checked::after {
+  justify-self: end;
+}
+
+.version {
+  position: absolute;
+  left: 0.5ch;
+  bottom: 0;
+  font-family: system-ui;
+  font-size: 0.67em;
+}
+
+dialog p {
+  max-width: 36em;
+}
+
+@media (orientation: portrait) {
+  h1 {
+    font-size: 1.25em;
+  }
+
+  .cat {
+    writing-mode: vertical-rl;
+    font-size: 1em;
+  }
+
+  .subcat {
+    padding-inline: var(--u) calc(2 * var(--u));
+  }
+}
+</style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="grid">
+        <h1>Switch 2 games<br />published by Nintendo</h1>
+        <div class="months">
+          <span>Jun</span>
+          <span>Jul</span>
+          <span>Aug</span>
+          <span>Sep</span>
+          <span>Oct</span>
+          <span>Nov</span>
+          <span>Dec</span>
+        </div>
+
+        <div class="cat">
+          <h2>Switch 2 exclusives</h2>
+        </div>
+        <div class="cat">
+          <h2>
+            “Switch 2 Edition”<br /><small>(upgraded Switch 1 games)</small>
+          </h2>
+        </div>
+        <div class="subcat">
+          <h3>Physical <br /><small>(major releases)</small></h3>
+        </div>
+        <div class="subcat">
+          <h3>Download <br /><small>(smaller titles)</small></h3>
+        </div>
+        <div class="subcat">
+          <h3>“Plus” <br /><small>(big expansion)</small></h3>
+        </div>
+        <div class="subcat">
+          <h3>
+            Plain
+            <button
+              class="info"
+              onclick="document.querySelector('[data-for=plain]').showModal()"
+            >
+              ?
+            </button>
+            <br /><small>(some extras)</small>
+          </h3>
+        </div>
+        <div id="fullscreen">
+          <label>
+            <input type="checkbox" class="switch" />
+            Full screen
+          </label>
+        </div>
+      </div>
+      <span class="version">1.3.0</span>
+    </div>
+    <dialog data-for="plain">
+      <p>
+        “Plain” refers to the upgrade from Switch 1 to Switch 2. It means that
+        there aren’t many differences between the Switch 1 and Switch 2 versions
+        of the game. The “Switch 2 edition” looks and runs better, and contains
+        a few extra features.
+      </p>
+      <p>
+        Whether some of these games are truly Switch 1 games that have been
+        upgraded to Switch 2, or actually Switch 2 games that have been
+        downgraded to Switch 1 is a matter of opinion.
+      </p>
+      <p>
+        <button onclick="this.closest('dialog').close()">Close</button>
+      </p>
+    </dialog>
+    <script>{
+  // document.documentElement.style = `--u: ${window.innerHeight / 100}px`;
+
+  // category: 1 exclusive, .1 retail, .2 digital-only; 2 “edition”, .1 “plus”, .2 plain
+  // developer: 1 Nintendo, 2 subsidiary, 3 close partner, 4 other developer
+  // price: [ game, upgrade pack ] in tens of USD/EUR
+
+  // IMPORTANT: sort alphabetically
+  let games = [
+    {
+      name: 'Donkey Kong Bananza',
+      path: 'donkey-kong-bananza',
+      category: 1.1,
+      release: '2025-07-17',
+      price: [7],
+      developer: 1,
+    },
+    {
+      name: 'Drag x Drive',
+      path: 'drag-x-drive',
+      category: 1.2,
+      release: '2025-08-14',
+      price: [2],
+      developer: 1,
+    },
+    {
+      name: 'Hyrule Warriors: Age of Imprisonment',
+      path: 'hyrule-warriors-age-of-imprisonment',
+      category: 1.1,
+      release: 'this Winter',
+      developer: 4,
+      order: 2,
+    },
+    {
+      name: 'Kirby Air Riders',
+      path: 'kirby-airriders',
+      category: 1.1,
+      release: '2025',
+      developer: 3,
+      order: 1,
+    },
+    {
+      name: 'Kirby and the Forgotten Land – Nintendo Switch 2 Edition + Star-Crossed World',
+      path: 'kirby-and-the-forgotten-land-switch-2-edition',
+      category: 2.1,
+      release: '2025-08-28',
+      price: [8, 2],
+      developer: 3,
+    },
+    {
+      name: 'Mario Kart World',
+      path: 'mario-kart-world',
+      category: 1.1,
+      release: '2025-06-05',
+      price: [8],
+      developer: 1,
+      noline: true,
+    },
+    {
+      name: 'Metroid Prime 4: Beyond – Nintendo Switch 2 Edition',
+      path: 'metroid-prime-4-beyond-nintendo-switch-2-edition',
+      category: 2.2,
+      release: '2025',
+      developer: 2,
+      order: 1,
+    },
+    {
+      name: 'Nintendo GameCube – Nintendo Classics',
+      path: 'nintendo-gamecube-nintendo-classics',
+      category: 1.2,
+      release: '2025-06-05',
+      price: [0],
+      nso: true,
+      developer: 1,
+      multi: 2,
+      noline: true,
+    },
+    {
+      name: 'Nintendo Switch 2 Welcome Tour',
+      path: 'nintendo-switch-2-welcome-tour',
+      category: 1.2,
+      release: '2025-06-05',
+      price: [1],
+      developer: 1,
+      multi: 1,
+      noline: true,
+    },
+    {
+      name: 'Pokémon Legends: Z-A – Nintendo Switch 2 Edition',
+      path: 'pokemon-legends-z-a-nintendo-switch-2-edition',
+      category: 2.2,
+      release: '2025-10-16',
+      price: [7, 1],
+      developer: 3,
+    },
+    {
+      name: 'Splatoon Raiders',
+      path: 'splatoon-raiders',
+      category: 1.1,
+      release: 'TBD',
+      developer: 1,
+      order: 4,
+    },
+    {
+      name: 'Super Mario Party Jamboree – Nintendo Switch 2 Edition + Jamboree TV',
+      path: 'super-mario-party-jamboree-nintendo-switch-2-edition',
+      category: 2.1,
+      release: '2025-07-24',
+      price: [8, 2],
+      developer: 2,
+    },
+    {
+      name: 'The Duskbloods',
+      path: 'the-duskbloods',
+      category: 1.1,
+      release: '2026',
+      developer: 4,
+      order: 3,
+    },
+    {
+      name: 'The Legend of Zelda: Breath of the Wild – Nintendo Switch 2 Edition',
+      path: 'the-legend-of-zelda-breath-of-the-wild-nintendo-switch-2-edition',
+      category: 2.2,
+      release: '2025-06-05',
+      price: [8, 1],
+      developer: 1,
+      multi: 2,
+    },
+    {
+      name: 'The Legend of Zelda: Tears of the Kingdom – Nintendo Switch 2 Edition',
+      path: 'the-legend-of-zelda-tears-of-the-kingdom-nintendo-switch-2-edition',
+      category: 2.2,
+      release: '2025-06-05',
+      price: [8, 1],
+      developer: 1,
+      multi: 1,
+    },
+  ];
+
+  // generate HTML for games
+  {
+    let html = '';
+    let toStripe = {
+      1.1: 1,
+      1.2: 2,
+      2.1: 3,
+      2.2: 4,
+    };
+    let toDevIcon = {
+      1: 'Ⓝ',
+      2: 'Ⓝ',
+      3: '★',
+      4: '',
+    };
+    let toPriceIcon = {
+      1: '①',
+      2: '②',
+    };
+    let toMultiIcon = {
+      1: '●○',
+      2: '○●',
+    };
+    let daysSinceLaunch = (datestr) => {
+      let date0 = +new Date('2025-06-05T00:00:00Z');
+      let date = +new Date(`${datestr}T00:00:00Z`);
+      return (date - date0) / (24 * 60 * 60 * 1000);
+    };
+
+    for (let game of games) {
+      let isDated = game.release.match(/^\d{4}-\d{2}-\d{2}$/);
+      html += `
+<div class="game ${game.nso === true ? 'nso' : ''}" style="--stripe: ${
+        toStripe[game.category]
+      }; ${
+        isDated
+          ? `--days: ${daysSinceLaunch(game.release)}`
+          : `--order: ${game.order}`
+      }" ${game.multi && game.multi > 1 ? 'hidden' : ''}>
+  <a href="https://www.dekudeals.com/items/${game.path}">
+    <img src="images/${game.path}.jpg" alt="${game.name}">
+  </a>
+  ${
+    game.price
+      ? `<div class="price">${game.price[0]} ${
+          game.price[1] ? toPriceIcon[game.price[1]] : ''
+        }</div>`
+      : ''
+  }
+  ${
+    isDated
+      ? game.noline === true
+        ? ''
+        : `<div class="day">${game.release
+            .slice(8, 10)
+            .replace(/^0/, '')}</div>`
+      : `<div class="releases">${game.release}</div>`
+  }
+  ${
+    game.developer
+      ? `<div class="developer d${game.developer}">${
+          toDevIcon[game.developer]
+        }</div>`
+      : ''
+  }
+  ${game.multi ? `<div class="multi">${toMultiIcon[game.multi]}</div>` : ''}
+</div>`;
+    }
+
+    document.querySelector('#grid').insertAdjacentHTML('beforeend', html);
+  }
+
+  document.addEventListener('click', (ev) => {
+    // toggling between games that occupy the same place
+    if (ev.target.matches('.multi')) {
+      let game = ev.target.closest('.game');
+      let style = game.getAttribute('style');
+      let games = Array.from(document.querySelectorAll(`[style="${style}"]`));
+      let nextIndex = games.indexOf(game) + 1;
+      if (!games[nextIndex]) nextIndex = 0;
+      for (let g of games) {
+        g.toggleAttribute('hidden', games.indexOf(g) !== nextIndex);
+      }
+    }
+
+    // full screen control
+    else if (ev.target.matches('.switch')) {
+      if (ev.target.checked) {
+        document.documentElement.requestFullscreen?.();
+      } else {
+        document.exitFullscreen();
+      }
+    }
+  });
+
+  {
+    let fullscreenSwitch = document.querySelector('.switch');
+
+    if (document.fullscreenEnabled !== true) {
+      fullscreenSwitch.closest('#fullscreen').hidden = true;
+    } else {
+      let updateFullscreenSwitch = () => {
+        fullscreenSwitch.checked = Boolean(document.fullscreenElement);
+      };
+
+      document.addEventListener('fullscreenchange', updateFullscreenSwitch);
+      window.addEventListener('pageshow', updateFullscreenSwitch);
+    }
+  }
+}
+</script>
+  </body>
+</html>
