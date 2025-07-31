@@ -1,6 +1,0 @@
-{
-  "name": "switch2",
-  "scripts": {
-    "deploy": "node build.mjs && git push"
-  }
-}
