@@ -404,3 +404,9 @@ dialog p {
     padding-inline: var(--u) calc(2 * var(--u));
   }
 }
+
+@media (orientation: landscape) and (any-pointer: coarse) {
+  html {
+    font-size: calc(3.2 * var(--u));
+  }
+}
