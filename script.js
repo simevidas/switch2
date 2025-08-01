@@ -1,5 +1,21 @@
 {
-  // document.documentElement.style = `--u: ${window.innerHeight / 100}px`;
+  if (window.matchMedia('(any-pointer: coarse)').matches === false) {
+    if (!localStorage.getItem('DPR')) {
+      localStorage.setItem('DPR', window.devicePixelRatio);
+    }
+
+    let updateUd = () => {
+      let dpr0 = localStorage.getItem('DPR');
+      let dpr = window.devicePixelRatio;
+      let zoom = dpr / dpr0;
+      let height = (zoom * window.innerHeight) / 100;
+
+      document.documentElement.style = `--ud: ${height}px`;
+    };
+
+    updateUd();
+    window.addEventListener('resize', updateUd);
+  }
 
   // category: 1 exclusive, .1 retail, .2 digital-only; 2 “edition”, .1 “plus”, .2 plain
   // developer: 1 Nintendo, 2 subsidiary, 3 close partner, 4 other developer

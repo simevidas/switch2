@@ -407,6 +407,8 @@ dialog p {
 
 @media (orientation: landscape) and (any-pointer: coarse) {
   html {
-    font-size: calc(3.2 * var(--u));
+@media not (any-pointer: coarse) {
+  html {
+    --u: var(--ud);
   }
 }
