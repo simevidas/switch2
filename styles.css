@@ -6,7 +6,7 @@
 
 html {
   font-family: Verdana;
-  font-size: calc(2.72 * var(--u));
+  font-size: calc(var(--font-factor) * var(--u));
   color: var(--text-color);
   background: var(--bg-color);
 
@@ -16,6 +16,7 @@ html {
   --stripe-color: #eee;
 
   --u: 1svh;
+  --font-factor: 2.72;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -407,6 +408,10 @@ dialog p {
 
 @media (orientation: landscape) and (any-pointer: coarse) {
   html {
+    --font-factor: 3.72;
+  }
+}
+
 @media not (any-pointer: coarse) {
   html {
     --u: var(--ud);
