@@ -13,7 +13,7 @@
 
 html {
   font-family: Verdana;
-  font-size: calc(2.72 * var(--u));
+  font-size: calc(var(--font-factor) * var(--u));
   color: var(--text-color);
   background: var(--bg-color);
 
@@ -23,6 +23,7 @@ html {
   --stripe-color: #eee;
 
   --u: 1svh;
+  --font-factor: 2.72;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -414,7 +415,13 @@ dialog p {
 
 @media (orientation: landscape) and (any-pointer: coarse) {
   html {
-    font-size: calc(3.2 * var(--u));
+    --font-factor: 3.72;
+  }
+}
+
+@media not (any-pointer: coarse) {
+  html {
+    --u: var(--ud);
   }
 }
 </style>
@@ -469,7 +476,7 @@ dialog p {
           </label>
         </div>
       </div>
-      <span class="version">1.4.0</span>
+      <span class="version">1.5.0</span>
     </div>
     <dialog data-for="plain">
       <p>
@@ -488,7 +495,23 @@ dialog p {
       </p>
     </dialog>
     <script>{
-  // document.documentElement.style = `--u: ${window.innerHeight / 100}px`;
+  if (window.matchMedia('(any-pointer: coarse)').matches === false) {
+    if (!localStorage.getItem('DPR')) {
+      localStorage.setItem('DPR', window.devicePixelRatio);
+    }
+
+    let updateUd = () => {
+      let dpr0 = localStorage.getItem('DPR');
+      let dpr = window.devicePixelRatio;
+      let zoom = dpr / dpr0;
+      let height = (zoom * window.innerHeight) / 100;
+
+      document.documentElement.style = `--ud: ${height}px`;
+    };
+
+    updateUd();
+    window.addEventListener('resize', updateUd);
+  }
 
   // category: 1 exclusive, .1 retail, .2 digital-only; 2 “edition”, .1 “plus”, .2 plain
   // developer: 1 Nintendo, 2 subsidiary, 3 close partner, 4 other developer
