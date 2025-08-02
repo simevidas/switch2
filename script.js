@@ -228,6 +228,13 @@
     }
 
     document.querySelector('#grid').insertAdjacentHTML('beforeend', html);
+
+    document
+      .querySelector('#today')
+      .setAttribute(
+        'style',
+        `--day: ${daysSinceLaunch(new Date().toISOString().slice(0, 10))}`
+      );
   }
 
   document.addEventListener('click', (ev) => {
