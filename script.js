@@ -1,4 +1,5 @@
 {
+  // in desktop browers, set --ud based on page zoom level
   if (window.matchMedia('(any-pointer: coarse)').matches === false) {
     if (!localStorage.getItem('DPR')) {
       localStorage.setItem('DPR', window.devicePixelRatio);
