@@ -431,7 +431,8 @@ dialog p {
 
 @media (orientation: landscape) and (any-pointer: coarse) {
   html {
-    --font-factor: 3.72;
+    --font-factor: 4.08;
+  }
   }
 }
 
