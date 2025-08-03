@@ -438,7 +438,12 @@ dialog p {
 
 @media (orientation: landscape) and (any-pointer: coarse) {
   html {
-    --font-factor: 3.72;
+    --font-factor: 4.08;
+  }
+
+  /* make Mario sprite smaller on phones held sideways */
+  #today {
+    --size: 16px;
   }
 }
 
@@ -500,7 +505,7 @@ dialog p {
           </label>
         </div>
       </div>
-      <span class="version">1.6.0</span>
+      <span class="version">1.7.0</span>
     </div>
     <dialog data-for="plain">
       <p>
