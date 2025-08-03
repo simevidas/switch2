@@ -316,30 +316,51 @@ h1 {
 
 .game .developer {
   position: absolute;
-  left: -0.35em;
-  top: -0.41em;
-  font-style: normal;
-  color: white;
-  background: #e60012;
-  line-height: 0.9;
-  padding-inline: 0.04em 0.06em;
-  padding-bottom: 0.04em;
+  left: calc(var(--size) * (-0.3));
+  top: calc(var(--size) * (-0.3));
+  line-height: 1;
+  padding-inline: 0.23em 0.22em;
+  padding-top: 0.05em;
+  aspect-ratio: 1 / 0.95;
   font-family: system-ui;
-  font-size: smaller;
-  border-radius: 0.45em;
+  font-weight: bold;
+  font-size: 0.42em;
+  border-radius: 9in;
+
+  --size: calc(var(--u) * 2.2);
+}
+
+.game .developer:is(.d1, .d2) {
+  color: white;
+  background: var(--icon-bg-color);
+  border: calc(var(--size) / 8) solid currentColor;
+  outline: calc(var(--size) / 10) solid var(--icon-bg-color);
+}
+
+.game .developer.d1 {
+  --icon-bg-color: #e60012;
 }
 
 .game .developer.d2 {
-  background: green;
+  --icon-bg-color: forestgreen;
 }
 
 .game .developer.d3 {
   color: rosybrown;
   background: var(--bg-color);
   font-weight: bold;
-  left: -0.47em;
-  top: -0.57em;
   font-family: Georgia;
+  font-size: 0.8em;
+  padding-inline: 0.15em;
+  padding-top: 0;
+  left: calc(var(--size) * (-0.57));
+  top: calc(var(--size) * (-0.57));
+}
+
+@media (prefers-color-scheme: dark) {
+  .game .developer.d3 {
+    color: mistyrose;
+  }
 }
 
 #fullscreen {
