@@ -433,6 +433,10 @@ dialog p {
   html {
     --font-factor: 4.08;
   }
+
+  /* make Mario sprite smaller on phones held sideways */
+  #today {
+    --size: 16px;
   }
 }
 
