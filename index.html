@@ -433,10 +433,18 @@ h1 {
   justify-self: end;
 }
 
-.version {
-  position: absolute;
-  left: 0.5ch;
-  bottom: 0;
+head,
+meta[name='version'] {
+  display: contents;
+}
+
+meta[name='version']::before {
+  display: block;
+  content: attr(content);
+  position: fixed;
+  z-index: 1;
+  right: 0.5ch;
+  top: 0;
   font-family: system-ui;
   font-size: 0.67em;
 }
@@ -445,6 +453,7 @@ dialog p {
   max-width: 36em;
 }
 
+/* make H1/category text area narrower when smartphone held vertically (normally) */
 @media (orientation: portrait) {
   h1 {
     font-size: 1.25em;
@@ -460,18 +469,21 @@ dialog p {
   }
 }
 
+/* increase font size when smartphone is held sideways */
 @media (orientation: landscape) and (any-pointer: coarse) {
   html {
     --font-factor: 4.08;
   }
 }
 
+/* use --ud value only on desktop */
 @media not (any-pointer: coarse) {
   html {
     --u: var(--ud);
   }
 }
 </style>
+    <meta name="version" content="1.9.5" />
   </head>
   <body>
     <div id="wrapper">
@@ -524,7 +536,6 @@ dialog p {
           </label>
         </div>
       </div>
-      <span class="version">1.9.4</span>
     </div>
     <dialog data-for="plain">
       <p>
