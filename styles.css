@@ -423,10 +423,18 @@ h1 {
   justify-self: end;
 }
 
-.version {
-  position: absolute;
-  left: 0.5ch;
-  bottom: 0;
+head,
+meta[name='version'] {
+  display: contents;
+}
+
+meta[name='version']::before {
+  display: block;
+  content: attr(content);
+  position: fixed;
+  z-index: 1;
+  right: 0.5ch;
+  top: 0;
   font-family: system-ui;
   font-size: 0.67em;
 }
