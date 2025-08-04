@@ -435,6 +435,7 @@ dialog p {
   max-width: 36em;
 }
 
+/* make H1/category text area narrower when smartphone held vertically (normally) */
 @media (orientation: portrait) {
   h1 {
     font-size: 1.25em;
@@ -450,12 +451,14 @@ dialog p {
   }
 }
 
+/* increase font size when smartphone is held sideways */
 @media (orientation: landscape) and (any-pointer: coarse) {
   html {
     --font-factor: 4.08;
   }
 }
 
+/* use --ud value only on desktop */
 @media not (any-pointer: coarse) {
   html {
     --u: var(--ud);
