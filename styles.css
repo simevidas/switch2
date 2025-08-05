@@ -405,6 +405,17 @@ h1 {
   justify-self: end;
 }
 
+#github {
+  grid-row: 1;
+  grid-column: 4;
+  place-self: center;
+  font-size: small;
+}
+
+a {
+  color: var(--text-color);
+}
+
 head,
 meta[name='version'] {
   display: contents;
