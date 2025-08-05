@@ -46,12 +46,6 @@
         <div class="subcat">
           <h3>
             Plain
-            <button
-              class="info"
-              onclick="document.querySelector('[data-for=plain]').showModal()"
-            >
-              ?
-            </button>
             <br /><small>(some extras)</small>
           </h3>
         </div>
@@ -63,22 +57,6 @@
         </div>
       </div>
     </div>
-    <dialog data-for="plain">
-      <p>
-        “Plain” refers to the upgrade from Switch 1 to Switch 2. It means that
-        there aren’t many differences between the Switch 1 and Switch 2 versions
-        of the game. The “Switch 2 edition” looks and runs better, and contains
-        a few extra features.
-      </p>
-      <p>
-        Whether some of these games are truly Switch 1 games that have been
-        upgraded to Switch 2, or actually Switch 2 games that have been
-        downgraded to Switch 1 is a matter of opinion.
-      </p>
-      <p>
-        <button onclick="this.closest('dialog').close()">Close</button>
-      </p>
-    </dialog>
     <script src="script.js"></script>
   </body>
 </html>
