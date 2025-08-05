@@ -4,6 +4,8 @@ The visualization is live at https://switch2.šime.eu. I suggest that you bookma
 
 If you want to report a problem or suggest an improvement, create an issue here on GitHub (Issues tab at the top of the page).
 
+The source code in this repository is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+
 ## How to read the visualization
 
 ### Developer icons
