@@ -90,8 +90,7 @@
       path: 'nintendo-gamecube-nintendo-classics',
       category: 1.2,
       release: '2025-06-05',
-      price: [0],
-      nso: true,
+      price: ['NSO'],
       developer: 1,
       multi: 2,
       noline: true,
@@ -190,9 +189,7 @@
     for (let game of games) {
       let isDated = game.release.match(/^\d{4}-\d{2}-\d{2}$/);
       html += `
-<div class="game ${game.nso === true ? 'nso' : ''}" style="--stripe: ${
-        toStripe[game.category]
-      }; ${
+<div class="game" style="--stripe: ${toStripe[game.category]}; ${
         isDated
           ? `--days: ${daysSinceLaunch(game.release)}`
           : `--order: ${game.order}`

@@ -289,12 +289,6 @@ h1 {
   border-top-left-radius: 0.2em;
 }
 
-.game.nso .price::after {
-  content: '↺';
-  font-size: 0.8em;
-  vertical-align: 0.08em;
-}
-
 .game img {
   display: block;
   max-width: 100%;
