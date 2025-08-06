@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "http-server -c-1 -o local.html"
+  }
+}
