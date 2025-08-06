@@ -5,99 +5,30 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Icon</title>
-  </head>
-  <body>
-    <div id="icon">
-      <span id="curly">{</span>
-      <div id="stripes">
-        <div id="box">
-          <span>3</span>
-        </div>
-      </div>
-    </div>
-
     <style>
-      html,
-      body {
-        height: 100%;
-      }
-
-      body {
-        margin: 0;
+      div {
         display: grid;
         place-items: center;
+        width: 512px;
+        height: 512px;
+        outline: 1px solid gray;
       }
 
-      #icon {
-        width: 256px;
-        height: 256px;
-        /* outline: 1px solid black; */
-        display: grid;
-        place-items: center;
-        grid-template-columns: 120px 1fr;
-        overflow: hidden;
-      }
-
-      #curly {
+      span {
         font-family: Helvetica;
-        font-size: 204px;
+        font-size: var(--size);
         font-weight: 1;
-        text-align: center;
-      }
+        scale: 205% 100%;
+        color: white;
+        -webkit-text-stroke: black 0.035em;
 
-      #stripes {
-        width: 100%;
-        height: 190px;
-        background: repeating-linear-gradient(
-          #eee 0%,
-          #eee 33.3333%,
-          transparent 33.3333%,
-          transparent 66.6666%
-        );
-        display: grid;
-        place-items: end;
-      }
-
-      #box {
-        height: var(--size);
-        aspect-ratio: 1;
-        background: linear-gradient(#ffea00, #f9be00);
-        margin-inline: auto;
-        position: relative;
-        bottom: calc((var(--size) - 33.3333%) / (-2));
-        display: grid;
-        place-items: center;
-
-        --size: 44%;
-      }
-
-      #box span {
-        color: #0068b3;
-        font-family: Gill Sans;
-        font-size: 70px;
-        font-weight: bold;
-        line-height: 1;
-        text-shadow: 1px 1px 0 #ef0112;
-      }
-
-      #box::before {
-        content: '';
-        width: var(--size);
-        height: calc(100 * var(--u) - 3px);
-        position: absolute;
-        top: calc(-100 * var(--u));
-        left: 37px;
-        background: radial-gradient(
-          var(--text-color) calc(var(--size) * var(--ratio) / 2),
-          transparent calc(var(--size) * (1 - var(--ratio)) / 2)
-        );
-        background-size: var(--size) var(--size);
-
-        --text-color: black;
-        --u: 11px;
-        --size: calc(var(--u) * 0.93);
-        --ratio: 0.6;
+        --size: 20em;
       }
     </style>
+  </head>
+  <body>
+    <div>
+      <span>{</span>
+    </div>
   </body>
 </html>

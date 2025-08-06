@@ -3,12 +3,12 @@
   "short_name": "Switch 2",
   "icons": [
     {
-      "src": "icon.png",
+      "src": "apple-touch-icon.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "maskable-icon-512.png",
+      "src": "icon-maskable.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
