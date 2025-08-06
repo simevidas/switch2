@@ -9,6 +9,7 @@ let games = [
   {
     name: 'Donkey Kong Bananza',
     path: 'donkey-kong-bananza',
+    image: '8086f441c9ba6ef349498840c725aa52e1d40f84',
     category: 1.1,
     release: '2025-07-17',
     price: [7],
@@ -17,6 +18,7 @@ let games = [
   {
     name: 'Drag x Drive',
     path: 'drag-x-drive',
+    image: '06863194d8b6951f8f2c00be75c5960e0fcd8032',
     category: 1.2,
     release: '2025-08-14',
     price: [2],
@@ -25,6 +27,7 @@ let games = [
   {
     name: 'Hyrule Warriors: Age of Imprisonment',
     path: 'hyrule-warriors-age-of-imprisonment',
+    image: '777c090622aeff0f9643b37737a1149750450904',
     category: 1.1,
     release: 'this Winter',
     developer: 4,
@@ -33,6 +36,7 @@ let games = [
   {
     name: 'Kirby Air Riders',
     path: 'kirby-airriders',
+    image: 'd82d99905ec24ec1a65462e6e26ee539b7db49af',
     category: 1.1,
     release: '2025',
     developer: 3,
@@ -41,6 +45,7 @@ let games = [
   {
     name: 'Kirby and the Forgotten Land – Nintendo Switch 2 Edition + Star-Crossed World',
     path: 'kirby-and-the-forgotten-land-switch-2-edition',
+    image: 'a9884f5aa1066eacabbd500d52a010b4f87bfb2b',
     category: 2.1,
     release: '2025-08-28',
     price: [8, 2],
@@ -49,6 +54,7 @@ let games = [
   {
     name: 'Mario Kart World',
     path: 'mario-kart-world',
+    image: '851a15f2fb3402f3e70cee3a52754a47df58e56c',
     category: 1.1,
     release: '2025-06-05',
     price: [8],
@@ -58,6 +64,7 @@ let games = [
   {
     name: 'Metroid Prime 4: Beyond – Nintendo Switch 2 Edition',
     path: 'metroid-prime-4-beyond-nintendo-switch-2-edition',
+    image: '2bde1c4156fde72a7a1ac65f021f86ac239bd686',
     category: 2.2,
     release: '2025',
     developer: 2,
@@ -66,6 +73,7 @@ let games = [
   {
     name: 'Nintendo GameCube – Nintendo Classics',
     path: 'nintendo-gamecube-nintendo-classics',
+    image: '0f14a40d321dbd13fe80d186f30eaa5c7ec432de',
     category: 1.2,
     release: '2025-06-05',
     price: ['NSO'],
@@ -76,6 +84,7 @@ let games = [
   {
     name: 'Nintendo Switch 2 Welcome Tour',
     path: 'nintendo-switch-2-welcome-tour',
+    image: '95d2445470a32cc80df722cade547901fb74b7b8',
     category: 1.2,
     release: '2025-06-05',
     price: [1],
@@ -86,6 +95,7 @@ let games = [
   {
     name: 'Pokémon Legends: Z-A – Nintendo Switch 2 Edition',
     path: 'pokemon-legends-z-a-nintendo-switch-2-edition',
+    image: 'b5ab73472383bd16c94cbcaff993591dab5195aa',
     category: 2.2,
     release: '2025-10-16',
     price: [7, 1],
@@ -94,6 +104,7 @@ let games = [
   {
     name: 'Splatoon Raiders',
     path: 'splatoon-raiders',
+    image: '9ba330082ff09366452d80dac03235dbc65c379b',
     category: 1.1,
     release: 'TBD',
     developer: 1,
@@ -102,6 +113,7 @@ let games = [
   {
     name: 'Super Mario Party Jamboree – Nintendo Switch 2 Edition + Jamboree TV',
     path: 'super-mario-party-jamboree-nintendo-switch-2-edition',
+    image: '0bad92db80f74b517eb0d6597cac2cf2493c820a',
     category: 2.1,
     release: '2025-07-24',
     price: [8, 2],
@@ -110,6 +122,7 @@ let games = [
   {
     name: 'The Duskbloods',
     path: 'the-duskbloods',
+    image: '40d840f3dc3f5ee564ba31af78b015c95916d43e',
     category: 1.1,
     release: '2026',
     developer: 4,
@@ -118,6 +131,7 @@ let games = [
   {
     name: 'The Legend of Zelda: Breath of the Wild – Nintendo Switch 2 Edition',
     path: 'the-legend-of-zelda-breath-of-the-wild-nintendo-switch-2-edition',
+    image: 'd601c049e62c067e31f6d7210475f5c115baa94a',
     category: 2.2,
     release: '2025-06-05',
     price: [8, 1],
@@ -127,6 +141,7 @@ let games = [
   {
     name: 'The Legend of Zelda: Tears of the Kingdom – Nintendo Switch 2 Edition',
     path: 'the-legend-of-zelda-tears-of-the-kingdom-nintendo-switch-2-edition',
+    image: '0b23b0a15ae4e662a0f971413e446412eb1558a5',
     category: 2.2,
     release: '2025-06-05',
     price: [8, 1],
@@ -168,7 +183,9 @@ for (let game of games) {
       : `--order: ${game.order}`
   }" ${game.multi && game.multi > 1 ? 'hidden' : ''}>
   <a href="https://www.dekudeals.com/items/${game.path}">
-    <img src="images/${game.path}.jpg" alt="${game.name}">
+    <img src="https://cdn.dekudeals.com/images/${game.image}/w500.jpg" alt="${
+    game.name
+  }">
   </a>
   ${
     game.price
