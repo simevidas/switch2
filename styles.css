@@ -412,7 +412,7 @@ h1 {
   grid-row: 1;
   grid-column: 4;
   place-self: center;
-  font-size: small;
+  font-size: smaller;
 }
 
 #placeholder {
