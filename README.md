@@ -42,3 +42,7 @@ Nintendo will continue to release new Switch 1 games that can be played on Switc
 “Plain” refers to the upgrade from Switch 1 to Switch 2. It means that there aren’t many differences between the Switch 1 and Switch 2 versions of the game. The “Switch 2 edition” looks and runs better, and contains a few extra features.
 
 Whether some of these games are truly Switch 1 games that have been upgraded to Switch 2, or actually Switch 2 games that have been downgraded to Switch 1 is a matter of opinion.
+
+## Does scrolling with the mouse not work?
+
+Since the page scrolls horizontally instead of vertically, you need to hold down the Shift key while rolling the mouse wheel to scroll the page.
