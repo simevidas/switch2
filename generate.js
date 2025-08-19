@@ -31,16 +31,16 @@ let games = [
     category: 1.1,
     release: 'this Winter',
     developer: 4,
-    order: 2,
+    order: 1,
   },
   {
     name: 'Kirby Air Riders',
     path: 'kirby-airriders',
     image: 'd82d99905ec24ec1a65462e6e26ee539b7db49af',
     category: 1.1,
-    release: '2025',
+    release: '2025-11-20',
+    price: [7],
     developer: 3,
-    order: 1,
   },
   {
     name: 'Kirby and the Forgotten Land – Nintendo Switch 2 Edition + Star-Crossed World',
@@ -108,7 +108,7 @@ let games = [
     category: 1.1,
     release: 'TBD',
     developer: 1,
-    order: 4,
+    order: 3,
   },
   {
     name: 'Super Mario Party Jamboree – Nintendo Switch 2 Edition + Jamboree TV',
@@ -126,7 +126,7 @@ let games = [
     category: 1.1,
     release: '2026',
     developer: 4,
-    order: 3,
+    order: 2,
   },
   {
     name: 'The Legend of Zelda: Breath of the Wild – Nintendo Switch 2 Edition',
