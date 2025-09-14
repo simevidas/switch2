@@ -71,13 +71,14 @@ h3 {
     );
   grid-template-columns:
     min-content min-content calc(
-      calc(12 * var(--u)) + var(--1day) * 214 + calc(8 * var(--u))
+      calc(12 * var(--u)) + var(--1day) * var(--total-days) + calc(8 * var(--u))
     )
     min-content;
   min-width: fit-content;
   padding-inline: calc(5 * var(--u)) calc(15 * var(--u));
 
   --1day: calc(0.5 * var(--u));
+  --total-days: 275;
 }
 
 #grid::before {
@@ -110,9 +111,10 @@ h1 {
   display: grid;
   grid-template-columns:
     calc(var(--1day) * 30) calc(var(--1day) * 31) calc(var(--1day) * 31)
-    calc(var(--1day) * 30) calc(var(--1day) * 31) calc(var(--1day) * 30) calc(var(
-          --1day
-        ) * 31);
+    calc(var(--1day) * 30) calc(var(--1day) * 31) calc(var(--1day) * 30) calc(
+      var(--1day) * 31
+    )
+    calc(var(--1day) * 31) calc(var(--1day) * 30);
   font-size: smaller;
   margin-left: calc(12 * var(--u));
   background: linear-gradient(var(--bg-color) 50%, transparent 50%);
@@ -222,7 +224,8 @@ h1 {
   margin-top: calc(-3 * var(--u));
   box-shadow: 0 0 var(--u) var(--bg-color);
   margin-left: calc(
-    var(--days, 0) * var(--1day) + 5 * var(--1day) + calc(4 * var(--u))
+    var(--days, 0) * var(--1day) + var(--shift, 0) * var(--1day) + 5 *
+      var(--1day) + calc(4 * var(--u))
   );
   grid-row: calc(var(--stripe) * 2 + 1);
   grid-column: 3;
@@ -245,7 +248,7 @@ h1 {
 .game .day {
   position: absolute;
   top: -1.13em;
-  left: 0;
+  left: calc(var(--shift, 0) * var(--1day) * (-2));
   right: 0;
   width: fit-content;
   margin-inline: auto;
@@ -262,7 +265,9 @@ h1 {
   height: calc(calc(100 * var(--u)) - 0.8em);
   position: absolute;
   top: calc(-100 * var(--u));
-  left: calc(calc(8 * var(--u)) - var(--size) / 2);
+  left: calc(
+    calc(8 * var(--u)) - var(--size) / 2 - var(--shift, 0) * var(--1day)
+  );
   z-index: -1;
   background: radial-gradient(
     var(--text-color) calc(var(--size) * var(--ratio) / 2),
@@ -291,6 +296,8 @@ h1 {
 .game img {
   display: block;
   max-width: 100%;
+  outline: 1px solid var(--outline, transparent);
+  outline-offset: -1px;
 }
 
 .game .multi {
@@ -349,6 +356,15 @@ h1 {
   padding-top: 0;
   left: calc(var(--size) * (-0.57));
   top: calc(var(--size) * (-0.57));
+}
+
+.game .developer.d5 {
+  background: var(--bg-color);
+  font-size: 0.75em;
+  padding: 0;
+  padding-bottom: 0.15em;
+  left: calc(var(--size) * (-0.44));
+  top: calc(var(--size) * (-0.44));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -483,7 +499,7 @@ html.js :is(#fullscreen, #today, .game .multi) {
   visibility: visible;
 }
 </style>
-    <meta name="version" content="1.13.2" />
+    <meta name="version" content="1.14.0" />
   </head>
   <body>
     <div id="wrapper">
@@ -497,6 +513,8 @@ html.js :is(#fullscreen, #today, .game .multi) {
           <span>Oct</span>
           <span>Nov</span>
           <span>Dec</span>
+          <span>Jan</span>
+          <span>Feb</span>
           <div id="today"></div>
         </div>
 
@@ -534,7 +552,7 @@ html.js :is(#fullscreen, #today, .game .multi) {
           <a href="https://github.com/simevidas/switch2">README on GitHub</a>.
         </div>
         
-<div class="game" style="--stripe: 1; --days: 42" >
+<div class="game" style="--stripe: 1; --days: 42;  " >
   <a href="https://www.dekudeals.com/items/donkey-kong-bananza">
     <img src="https://cdn.dekudeals.com/images/8086f441c9ba6ef349498840c725aa52e1d40f84/w500.jpg" alt="Donkey Kong Bananza">
   </a>
@@ -543,7 +561,7 @@ html.js :is(#fullscreen, #today, .game .multi) {
   <div class="developer d1">N</div>
   
 </div>
-<div class="game" style="--stripe: 2; --days: 70" >
+<div class="game" style="--stripe: 2; --days: 70;  " >
   <a href="https://www.dekudeals.com/items/drag-x-drive">
     <img src="https://cdn.dekudeals.com/images/06863194d8b6951f8f2c00be75c5960e0fcd8032/w500.jpg" alt="Drag x Drive">
   </a>
@@ -552,16 +570,25 @@ html.js :is(#fullscreen, #today, .game .multi) {
   <div class="developer d1">N</div>
   
 </div>
-<div class="game" style="--stripe: 1; --order: 1" >
-  <a href="https://www.dekudeals.com/items/hyrule-warriors-age-of-imprisonment">
-    <img src="https://cdn.dekudeals.com/images/777c090622aeff0f9643b37737a1149750450904/w500.jpg" alt="Hyrule Warriors: Age of Imprisonment">
+<div class="game" style="--stripe: 1; --order: 4;  " >
+  <a href="https://www.dekudeals.com/items/fire-emblem-fortunes-weave">
+    <img src="https://cdn.dekudeals.com/images/d7afc90a912773cc9d7c74dafef6d035f73dc5b2/w500.jpg" alt=" Fire Emblem: Fortune’s Weave">
   </a>
   
-  <div class="releases">this Winter</div>
+  <div class="releases">2026</div>
+  <div class="developer d3">★</div>
+  
+</div>
+<div class="game" style="--stripe: 1; --days: 154; --shift: -12; " >
+  <a href="https://www.dekudeals.com/items/hyrule-warriors-age-of-imprisonment">
+    <img src="https://cdn.dekudeals.com/images/0961f8985e8c808e0cb0ae546c6d3fb19c67e99c/w500.jpg" alt="Hyrule Warriors: Age of Imprisonment">
+  </a>
+  <div class="price">7 </div>
+  <div class="day">6</div>
   <div class="developer d4"></div>
   
 </div>
-<div class="game" style="--stripe: 1; --days: 168" >
+<div class="game" style="--stripe: 1; --days: 168; --shift: 9; " >
   <a href="https://www.dekudeals.com/items/kirby-airriders">
     <img src="https://cdn.dekudeals.com/images/d82d99905ec24ec1a65462e6e26ee539b7db49af/w500.jpg" alt="Kirby Air Riders">
   </a>
@@ -570,7 +597,7 @@ html.js :is(#fullscreen, #today, .game .multi) {
   <div class="developer d3">★</div>
   
 </div>
-<div class="game" style="--stripe: 3; --days: 84" >
+<div class="game" style="--stripe: 3; --days: 84;  " >
   <a href="https://www.dekudeals.com/items/kirby-and-the-forgotten-land-switch-2-edition">
     <img src="https://cdn.dekudeals.com/images/a9884f5aa1066eacabbd500d52a010b4f87bfb2b/w500.jpg" alt="Kirby and the Forgotten Land – Nintendo Switch 2 Edition + Star-Crossed World">
   </a>
@@ -579,7 +606,7 @@ html.js :is(#fullscreen, #today, .game .multi) {
   <div class="developer d3">★</div>
   
 </div>
-<div class="game" style="--stripe: 1; --days: 0" >
+<div class="game" style="--stripe: 1; --days: 0;  " >
   <a href="https://www.dekudeals.com/items/mario-kart-world">
     <img src="https://cdn.dekudeals.com/images/851a15f2fb3402f3e70cee3a52754a47df58e56c/w500.jpg" alt="Mario Kart World">
   </a>
@@ -588,16 +615,25 @@ html.js :is(#fullscreen, #today, .game .multi) {
   <div class="developer d1">N</div>
   
 </div>
-<div class="game" style="--stripe: 4; --order: 1" >
+<div class="game" style="--stripe: 1; --days: 252;  " >
+  <a href="https://www.dekudeals.com/items/mario-tennis-fever">
+    <img src="https://cdn.dekudeals.com/images/04dc9e7ad39750de2b91515dcb36551ef2235660/w500.jpg" alt="Mario Tennis Fever">
+  </a>
+  <div class="price">7 </div>
+  <div class="day">12</div>
+  <div class="developer d3">★</div>
+  
+</div>
+<div class="game" style="--stripe: 4; --days: 182;  " >
   <a href="https://www.dekudeals.com/items/metroid-prime-4-beyond-nintendo-switch-2-edition">
     <img src="https://cdn.dekudeals.com/images/2bde1c4156fde72a7a1ac65f021f86ac239bd686/w500.jpg" alt="Metroid Prime 4: Beyond – Nintendo Switch 2 Edition">
   </a>
-  
-  <div class="releases">2025</div>
+  <div class="price">7 ①</div>
+  <div class="day">4</div>
   <div class="developer d2">N</div>
   
 </div>
-<div class="game" style="--stripe: 2; --days: 0" hidden>
+<div class="game" style="--stripe: 2; --days: 0;  " hidden>
   <a href="https://www.dekudeals.com/items/nintendo-gamecube-nintendo-classics">
     <img src="https://cdn.dekudeals.com/images/0f14a40d321dbd13fe80d186f30eaa5c7ec432de/w500.jpg" alt="Nintendo GameCube – Nintendo Classics">
   </a>
@@ -606,7 +642,7 @@ html.js :is(#fullscreen, #today, .game .multi) {
   <div class="developer d1">N</div>
   <div class="multi">○●</div>
 </div>
-<div class="game" style="--stripe: 2; --days: 0" >
+<div class="game" style="--stripe: 2; --days: 0;  " >
   <a href="https://www.dekudeals.com/items/nintendo-switch-2-welcome-tour">
     <img src="https://cdn.dekudeals.com/images/95d2445470a32cc80df722cade547901fb74b7b8/w500.jpg" alt="Nintendo Switch 2 Welcome Tour">
   </a>
@@ -615,7 +651,7 @@ html.js :is(#fullscreen, #today, .game .multi) {
   <div class="developer d1">N</div>
   <div class="multi">●○</div>
 </div>
-<div class="game" style="--stripe: 4; --days: 133" >
+<div class="game" style="--stripe: 4; --days: 133;  " >
   <a href="https://www.dekudeals.com/items/pokemon-legends-z-a-nintendo-switch-2-edition">
     <img src="https://cdn.dekudeals.com/images/b5ab73472383bd16c94cbcaff993591dab5195aa/w500.jpg" alt="Pokémon Legends: Z-A – Nintendo Switch 2 Edition">
   </a>
@@ -624,7 +660,16 @@ html.js :is(#fullscreen, #today, .game .multi) {
   <div class="developer d3">★</div>
   
 </div>
-<div class="game" style="--stripe: 1; --order: 3" >
+<div class="game" style="--stripe: 1; --order: 3;  " >
+  <a href="https://www.dekudeals.com/items/pokemon-pokopia">
+    <img src="https://cdn.dekudeals.com/images/105dbee968248f1e014ceba5da1867d8be656f7e/w500.png" alt=" Pokemon Pokopia">
+  </a>
+  
+  <div class="releases">2026</div>
+  
+  
+</div>
+<div class="game" style="--stripe: 1; --order: 5;  " >
   <a href="https://www.dekudeals.com/items/splatoon-raiders">
     <img src="https://cdn.dekudeals.com/images/9ba330082ff09366452d80dac03235dbc65c379b/w500.jpg" alt="Splatoon Raiders">
   </a>
@@ -633,7 +678,16 @@ html.js :is(#fullscreen, #today, .game .multi) {
   <div class="developer d1">N</div>
   
 </div>
-<div class="game" style="--stripe: 3; --days: 49" >
+<div class="game" style="--stripe: 3; --order: 1;  " >
+  <a href="https://www.dekudeals.com/items/super-mario-wonder-switch-2-edition">
+    <img src="https://cdn.dekudeals.com/images/e532936b7d3b01847a6d22df8bd42a81c06fdf1e/w500.jpg" alt="Super Mario Bros. Wonder – Nintendo Switch 2 Edition + Meetup in Bellabel Park">
+  </a>
+  
+  <div class="releases">Spring 2026</div>
+  <div class="developer d1">N</div>
+  
+</div>
+<div class="game" style="--stripe: 3; --days: 49;  " >
   <a href="https://www.dekudeals.com/items/super-mario-party-jamboree-nintendo-switch-2-edition">
     <img src="https://cdn.dekudeals.com/images/0bad92db80f74b517eb0d6597cac2cf2493c820a/w500.jpg" alt="Super Mario Party Jamboree – Nintendo Switch 2 Edition + Jamboree TV">
   </a>
@@ -642,7 +696,7 @@ html.js :is(#fullscreen, #today, .game .multi) {
   <div class="developer d2">N</div>
   
 </div>
-<div class="game" style="--stripe: 1; --order: 2" >
+<div class="game" style="--stripe: 1; --order: 2;  " >
   <a href="https://www.dekudeals.com/items/the-duskbloods">
     <img src="https://cdn.dekudeals.com/images/40d840f3dc3f5ee564ba31af78b015c95916d43e/w500.jpg" alt="The Duskbloods">
   </a>
@@ -651,7 +705,7 @@ html.js :is(#fullscreen, #today, .game .multi) {
   <div class="developer d4"></div>
   
 </div>
-<div class="game" style="--stripe: 4; --days: 0" hidden>
+<div class="game" style="--stripe: 4; --days: 0;  " hidden>
   <a href="https://www.dekudeals.com/items/the-legend-of-zelda-breath-of-the-wild-nintendo-switch-2-edition">
     <img src="https://cdn.dekudeals.com/images/d601c049e62c067e31f6d7210475f5c115baa94a/w500.jpg" alt="The Legend of Zelda: Breath of the Wild – Nintendo Switch 2 Edition">
   </a>
@@ -660,7 +714,7 @@ html.js :is(#fullscreen, #today, .game .multi) {
   <div class="developer d1">N</div>
   <div class="multi">○●</div>
 </div>
-<div class="game" style="--stripe: 4; --days: 0" >
+<div class="game" style="--stripe: 4; --days: 0;  " >
   <a href="https://www.dekudeals.com/items/the-legend-of-zelda-tears-of-the-kingdom-nintendo-switch-2-edition">
     <img src="https://cdn.dekudeals.com/images/0b23b0a15ae4e662a0f971413e446412eb1558a5/w500.jpg" alt="The Legend of Zelda: Tears of the Kingdom – Nintendo Switch 2 Edition">
   </a>
@@ -668,6 +722,24 @@ html.js :is(#fullscreen, #today, .game .multi) {
   <div class="day">5</div>
   <div class="developer d1">N</div>
   <div class="multi">●○</div>
+</div>
+<div class="game" style="--stripe: 2; --days: 257;  " >
+  <a href="https://www.dekudeals.com/items/virtual-boy-for-nintendo-switch">
+    <img src="https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/virtualboynintendoclassics/1x1_NSwitch2_NCVirtualBoy_image500w.jpg" alt="Virtual Boy – Nintendo Classics">
+  </a>
+  <div class="price">NSO </div>
+  <div class="day">17</div>
+  <div class="developer d1">N</div>
+  
+</div>
+<div class="game" style="--stripe: 1; --order: 1;  --outline: #42b909;" >
+  <a href="https://www.dekudeals.com/items/yoshi-and-the-mysterious-book">
+    <img src="https://cdn.dekudeals.com/images/21b8e9952e4047b7c9e594abc2afec2bdcd4b9c0/w500.jpg" alt=" Yoshi and the Mysterious Book">
+  </a>
+  
+  <div class="releases">Spring 2026</div>
+  <div class="developer d5">❓</div>
+  
 </div>
       </div>
     </div>
