@@ -25,13 +25,23 @@ let games = [
     developer: 1,
   },
   {
+    name: ' Fire Emblem: Fortune’s Weave',
+    path: 'fire-emblem-fortunes-weave',
+    image: 'd7afc90a912773cc9d7c74dafef6d035f73dc5b2',
+    category: 1.1,
+    release: '2026',
+    developer: 3,
+    order: 4,
+  },
+  {
     name: 'Hyrule Warriors: Age of Imprisonment',
     path: 'hyrule-warriors-age-of-imprisonment',
-    image: '777c090622aeff0f9643b37737a1149750450904',
+    image: '0961f8985e8c808e0cb0ae546c6d3fb19c67e99c',
     category: 1.1,
-    release: 'this Winter',
+    release: '2025-11-06',
+    price: [7],
     developer: 4,
-    order: 1,
+    shift: -12,
   },
   {
     name: 'Kirby Air Riders',
@@ -41,6 +51,7 @@ let games = [
     release: '2025-11-20',
     price: [7],
     developer: 3,
+    shift: 9,
   },
   {
     name: 'Kirby and the Forgotten Land – Nintendo Switch 2 Edition + Star-Crossed World',
@@ -62,13 +73,22 @@ let games = [
     noline: true,
   },
   {
+    name: 'Mario Tennis Fever',
+    path: 'mario-tennis-fever',
+    image: '04dc9e7ad39750de2b91515dcb36551ef2235660',
+    category: 1.1,
+    release: '2026-02-12',
+    price: [7],
+    developer: 3,
+  },
+  {
     name: 'Metroid Prime 4: Beyond – Nintendo Switch 2 Edition',
     path: 'metroid-prime-4-beyond-nintendo-switch-2-edition',
     image: '2bde1c4156fde72a7a1ac65f021f86ac239bd686',
     category: 2.2,
-    release: '2025',
+    release: '2025-12-04',
+    price: [7, 1],
     developer: 2,
-    order: 1,
   },
   {
     name: 'Nintendo GameCube – Nintendo Classics',
@@ -102,13 +122,31 @@ let games = [
     developer: 3,
   },
   {
+    name: ' Pokemon Pokopia',
+    path: 'pokemon-pokopia',
+    image: '105dbee968248f1e014ceba5da1867d8be656f7e',
+    imageType: 'png',
+    category: 1.1,
+    release: '2026',
+    order: 3,
+  },
+  {
     name: 'Splatoon Raiders',
     path: 'splatoon-raiders',
     image: '9ba330082ff09366452d80dac03235dbc65c379b',
     category: 1.1,
     release: 'TBD',
     developer: 1,
-    order: 3,
+    order: 5,
+  },
+  {
+    name: 'Super Mario Bros. Wonder – Nintendo Switch 2 Edition + Meetup in Bellabel Park',
+    path: 'super-mario-wonder-switch-2-edition',
+    image: 'e532936b7d3b01847a6d22df8bd42a81c06fdf1e',
+    category: 2.1,
+    release: 'Spring 2026',
+    developer: 1,
+    order: 1,
   },
   {
     name: 'Super Mario Party Jamboree – Nintendo Switch 2 Edition + Jamboree TV',
@@ -148,6 +186,26 @@ let games = [
     developer: 1,
     multi: 1,
   },
+  {
+    name: 'Virtual Boy – Nintendo Classics',
+    path: 'virtual-boy-for-nintendo-switch',
+    image:
+      'https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/virtualboynintendoclassics/1x1_NSwitch2_NCVirtualBoy_image500w.jpg',
+    category: 1.2,
+    release: '2026-02-17',
+    price: ['NSO'],
+    developer: 1,
+  },
+  {
+    name: ' Yoshi and the Mysterious Book',
+    path: 'yoshi-and-the-mysterious-book',
+    image: '21b8e9952e4047b7c9e594abc2afec2bdcd4b9c0',
+    outline: '#42b909',
+    category: 1.1,
+    release: 'Spring 2026',
+    developer: 5,
+    order: 1,
+  },
 ];
 
 // generate HTML for games
@@ -164,6 +222,7 @@ let toDevIcon = {
   2: 'N',
   3: '★',
   4: '',
+  5: '❓',
 };
 let toPriceIcon = {
   1: '①',
@@ -179,13 +238,19 @@ for (let game of games) {
   html += `
 <div class="game" style="--stripe: ${toStripe[game.category]}; ${
     isDated
-      ? `--days: ${daysSinceLaunch(game.release)}`
-      : `--order: ${game.order}`
+      ? `--days: ${daysSinceLaunch(game.release)};`
+      : `--order: ${game.order};`
+  } ${game.shift ? `--shift: ${game.shift};` : ''} ${
+    game.outline ? `--outline: ${game.outline};` : ''
   }" ${game.multi && game.multi > 1 ? 'hidden' : ''}>
   <a href="https://www.dekudeals.com/items/${game.path}">
-    <img src="https://cdn.dekudeals.com/images/${game.image}/w500.jpg" alt="${
-    game.name
-  }">
+    <img src="${
+      game.image.startsWith('https')
+        ? game.image
+        : `https://cdn.dekudeals.com/images/${game.image}/w500.${
+            game.imageType || 'jpg'
+          }`
+    }" alt="${game.name}">
   </a>
   ${
     game.price

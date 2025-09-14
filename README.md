@@ -15,6 +15,7 @@ The source code in this repository is licensed under [CC BY-NC 4.0](https://crea
 | red N   | **Nintendo EPD** (developed by Nintendo in-house)                              |
 | green N | **subsidiary** (developed by a company that is owned by Nintendo)              |
 | star    | **close partner** (developed by a company that is a close partner of Nintendo) |
+| red ?   | developer still unknown                                                        |
 
 ### Numbers
 

@@ -61,13 +61,14 @@ h3 {
     );
   grid-template-columns:
     min-content min-content calc(
-      calc(12 * var(--u)) + var(--1day) * 214 + calc(8 * var(--u))
+      calc(12 * var(--u)) + var(--1day) * var(--total-days) + calc(8 * var(--u))
     )
     min-content;
   min-width: fit-content;
   padding-inline: calc(5 * var(--u)) calc(15 * var(--u));
 
   --1day: calc(0.5 * var(--u));
+  --total-days: 275;
 }
 
 #grid::before {
@@ -100,9 +101,10 @@ h1 {
   display: grid;
   grid-template-columns:
     calc(var(--1day) * 30) calc(var(--1day) * 31) calc(var(--1day) * 31)
-    calc(var(--1day) * 30) calc(var(--1day) * 31) calc(var(--1day) * 30) calc(var(
-          --1day
-        ) * 31);
+    calc(var(--1day) * 30) calc(var(--1day) * 31) calc(var(--1day) * 30) calc(
+      var(--1day) * 31
+    )
+    calc(var(--1day) * 31) calc(var(--1day) * 30);
   font-size: smaller;
   margin-left: calc(12 * var(--u));
   background: linear-gradient(var(--bg-color) 50%, transparent 50%);
@@ -212,7 +214,8 @@ h1 {
   margin-top: calc(-3 * var(--u));
   box-shadow: 0 0 var(--u) var(--bg-color);
   margin-left: calc(
-    var(--days, 0) * var(--1day) + 5 * var(--1day) + calc(4 * var(--u))
+    var(--days, 0) * var(--1day) + var(--shift, 0) * var(--1day) + 5 *
+      var(--1day) + calc(4 * var(--u))
   );
   grid-row: calc(var(--stripe) * 2 + 1);
   grid-column: 3;
@@ -235,7 +238,7 @@ h1 {
 .game .day {
   position: absolute;
   top: -1.13em;
-  left: 0;
+  left: calc(var(--shift, 0) * var(--1day) * (-2));
   right: 0;
   width: fit-content;
   margin-inline: auto;
@@ -252,7 +255,9 @@ h1 {
   height: calc(calc(100 * var(--u)) - 0.8em);
   position: absolute;
   top: calc(-100 * var(--u));
-  left: calc(calc(8 * var(--u)) - var(--size) / 2);
+  left: calc(
+    calc(8 * var(--u)) - var(--size) / 2 - var(--shift, 0) * var(--1day)
+  );
   z-index: -1;
   background: radial-gradient(
     var(--text-color) calc(var(--size) * var(--ratio) / 2),
@@ -281,6 +286,8 @@ h1 {
 .game img {
   display: block;
   max-width: 100%;
+  outline: 1px solid var(--outline, transparent);
+  outline-offset: -1px;
 }
 
 .game .multi {
@@ -339,6 +346,15 @@ h1 {
   padding-top: 0;
   left: calc(var(--size) * (-0.57));
   top: calc(var(--size) * (-0.57));
+}
+
+.game .developer.d5 {
+  background: var(--bg-color);
+  font-size: 0.75em;
+  padding: 0;
+  padding-bottom: 0.15em;
+  left: calc(var(--size) * (-0.44));
+  top: calc(var(--size) * (-0.44));
 }
 
 @media (prefers-color-scheme: dark) {
