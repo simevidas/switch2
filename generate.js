@@ -31,7 +31,7 @@ let games = [
     category: 1.1,
     release: '2026',
     developer: 3,
-    order: 4,
+    order: 3,
   },
   {
     name: 'Hyrule Warriors: Age of Imprisonment',
@@ -128,7 +128,7 @@ let games = [
     imageType: 'png',
     category: 1.1,
     release: '2026',
-    order: 3,
+    order: 2,
   },
   {
     name: 'Splatoon Raiders',
@@ -137,7 +137,7 @@ let games = [
     category: 1.1,
     release: 'TBD',
     developer: 1,
-    order: 5,
+    order: 4,
   },
   {
     name: 'Super Mario Bros. Wonder – Nintendo Switch 2 Edition + Meetup in Bellabel Park',
@@ -157,15 +157,15 @@ let games = [
     price: [8, 2],
     developer: 2,
   },
-  {
-    name: 'The Duskbloods',
-    path: 'the-duskbloods',
-    image: '40d840f3dc3f5ee564ba31af78b015c95916d43e',
-    category: 1.1,
-    release: '2026',
-    developer: 4,
-    order: 2,
-  },
+  // {
+  //   name: 'The Duskbloods',
+  //   path: 'the-duskbloods',
+  //   image: '40d840f3dc3f5ee564ba31af78b015c95916d43e',
+  //   category: 1.1,
+  //   release: '2026',
+  //   developer: 4,
+  //   order: 2,
+  // },
   {
     name: 'The Legend of Zelda: Breath of the Wild – Nintendo Switch 2 Edition',
     path: 'the-legend-of-zelda-breath-of-the-wild-nintendo-switch-2-edition',
