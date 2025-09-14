@@ -188,9 +188,9 @@ let games = [
   },
   // {
   //   name: 'Virtual Boy – Nintendo Classics',
-  //   path: 'virtual-boy-for-nintendo-switch',
+  //   path: 'virtual-boy-nintendo-classics',
   //   image:
-  //     'https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/virtualboynintendoclassics/1x1_NSwitch2_NCVirtualBoy_image500w.jpg',
+  //     '99d79c0912dd83b27aaa8ccf337760b89177b326',
   //   category: 1.2,
   //   release: '2026-02-17',
   //   price: ['NSO'],
