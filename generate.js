@@ -186,16 +186,16 @@ let games = [
     developer: 1,
     multi: 1,
   },
-  {
-    name: 'Virtual Boy – Nintendo Classics',
-    path: 'virtual-boy-for-nintendo-switch',
-    image:
-      'https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/virtualboynintendoclassics/1x1_NSwitch2_NCVirtualBoy_image500w.jpg',
-    category: 1.2,
-    release: '2026-02-17',
-    price: ['NSO'],
-    developer: 1,
-  },
+  // {
+  //   name: 'Virtual Boy – Nintendo Classics',
+  //   path: 'virtual-boy-for-nintendo-switch',
+  //   image:
+  //     'https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/virtualboynintendoclassics/1x1_NSwitch2_NCVirtualBoy_image500w.jpg',
+  //   category: 1.2,
+  //   release: '2026-02-17',
+  //   price: ['NSO'],
+  //   developer: 1,
+  // },
   {
     name: ' Yoshi and the Mysterious Book',
     path: 'yoshi-and-the-mysterious-book',
