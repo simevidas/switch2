@@ -16,6 +16,15 @@ let games = [
     developer: 1,
   },
   {
+    name: 'Donkey Kong Bananza: DK Island & Emerald Rush',
+    path: 'donkey-kong-bananza-dk-island-and-emerald-rush',
+    image: 'eb026e33b8a681871c9f57e4cd39ffc713d58ecc',
+    category: 1.2,
+    release: '2025-09-13',
+    price: [2],
+    dlc: true,
+  },
+  {
     name: 'Drag x Drive',
     path: 'drag-x-drive',
     image: '06863194d8b6951f8f2c00be75c5960e0fcd8032',
@@ -236,7 +245,9 @@ let toMultiIcon = {
 for (let game of games) {
   let isDated = game.release.match(/^\d{4}-\d{2}-\d{2}$/);
   html += `
-<div class="game" style="--stripe: ${toStripe[game.category]}; ${
+<div class="game ${game.dlc ? 'dlc' : ''}" title="${
+    game.name
+  }" style="--stripe: ${toStripe[game.category]}; ${
     isDated
       ? `--days: ${daysSinceLaunch(game.release)};`
       : `--order: ${game.order};`

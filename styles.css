@@ -69,6 +69,7 @@ h3 {
 
   --1day: calc(0.5 * var(--u));
   --total-days: 275;
+  --stripe-margin-left: calc(12 * var(--u));
 }
 
 #grid::before {
@@ -106,7 +107,7 @@ h1 {
     )
     calc(var(--1day) * 31) calc(var(--1day) * 30);
   font-size: smaller;
-  margin-left: calc(12 * var(--u));
+  margin-left: var(--stripe-margin-left);
   background: linear-gradient(var(--bg-color) 50%, transparent 50%);
 }
 
@@ -124,14 +125,16 @@ h1 {
   grid-row: 2;
   grid-column: 1;
   align-self: start;
-  width: var(--size);
+  width: var(--sprite-size);
   aspect-ratio: 1;
-  margin-left: calc(var(--day) * var(--1day) + 5 * var(--1day) - var(--size));
+  margin-left: calc(
+    var(--day) * var(--1day) + 5 * var(--1day) - var(--sprite-size)
+  );
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA20lEQVQ4T52SsQ0CMQxFzywAbEGDaCiQKBiDBRBcxyx0B2IBxqBAoqBBNLcFsACgb+lHPseCE6+xo/j/OIml+IPXZfVmLkw89+kkFZH+6az1Pw0isae7GWkMDapykAyWi5nG3f6oeWe8FbufGWAThRSQaA2+GgAv8uvQANEWAhpayqqWzIDYl/bADGLkycA+DJnfesVh+MjWFANNIjGJTDgP0Albje4IIPCEBgB/jIhBwqlWjMF5rq8psisVwIQDgvu1mcSGAbDvELXtaRi0FfPulmTAr/HtRyLLB3fHiNnXU9lDAAAAAElFTkSuQmCC');
   background-size: 100%;
   image-rendering: pixelated;
 
-  --size: calc(var(--u) * 3.26);
+  --sprite-size: calc(var(--u) * 3.26);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -209,17 +212,23 @@ h1 {
 }
 
 .game {
-  width: calc(16 * var(--u));
-  height: calc(16 * var(--u));
-  margin-top: calc(-3 * var(--u));
+  width: calc(var(--box-size) * var(--u));
+  height: calc(var(--box-size) * var(--u));
+  margin-top: calc(var(--u) * (var(--box-size) - 10) / (-2));
   box-shadow: 0 0 var(--u) var(--bg-color);
   margin-left: calc(
     var(--days, 0) * var(--1day) + var(--shift, 0) * var(--1day) + 5 *
-      var(--1day) + calc(4 * var(--u))
+      var(--1day) + var(--stripe-margin-left) - var(--u) * var(--box-size) / 2
   );
   grid-row: calc(var(--stripe) * 2 + 1);
   grid-column: 3;
   position: relative;
+
+  --box-size: 16;
+}
+
+.game.dlc {
+  --box-size: 8;
 }
 
 .game:has(.releases) {
@@ -251,21 +260,22 @@ h1 {
 /* the dotted line */
 .game:has(.day)::before {
   content: '';
-  width: var(--size);
+  width: var(--line-size);
   height: calc(calc(100 * var(--u)) - 0.8em);
   position: absolute;
   top: calc(-100 * var(--u));
   left: calc(
-    calc(8 * var(--u)) - var(--size) / 2 - var(--shift, 0) * var(--1day)
+    var(--u) * var(--box-size) / 2 - var(--line-size) / 2 - var(--shift, 0) *
+      var(--1day)
   );
   z-index: -1;
   background: radial-gradient(
-    var(--text-color) calc(var(--size) * var(--ratio) / 2),
-    transparent calc(var(--size) * (1 - var(--ratio)) / 2)
+    var(--text-color) calc(var(--line-size) * var(--ratio) / 2),
+    transparent calc(var(--line-size) * (1 - var(--ratio)) / 2)
   );
-  background-size: var(--size) var(--size);
+  background-size: var(--line-size) var(--line-size);
 
-  --size: calc(var(--u) * 0.93);
+  --line-size: calc(var(--u) * 0.93);
   --ratio: 0.6;
 }
 
@@ -307,8 +317,8 @@ h1 {
 
 .game .developer {
   position: absolute;
-  left: calc(var(--size) * (-0.3));
-  top: calc(var(--size) * (-0.3));
+  left: calc(var(--icon-size) * (-0.3));
+  top: calc(var(--icon-size) * (-0.3));
   line-height: 1;
   padding-inline: 0.23em 0.22em;
   padding-top: 0.05em;
@@ -318,14 +328,14 @@ h1 {
   font-size: 0.42em;
   border-radius: 9in;
 
-  --size: calc(var(--u) * 2.2);
+  --icon-size: calc(var(--u) * 2.2);
 }
 
 .game .developer:is(.d1, .d2) {
   color: white;
   background: var(--icon-bg-color);
-  border: calc(var(--size) / 8) solid currentColor;
-  outline: calc(var(--size) / 10) solid var(--icon-bg-color);
+  border: calc(var(--icon-size) / 8) solid currentColor;
+  outline: calc(var(--icon-size) / 10) solid var(--icon-bg-color);
 }
 
 .game .developer.d1 {
@@ -344,8 +354,8 @@ h1 {
   font-size: 0.8em;
   padding-inline: 0.15em;
   padding-top: 0;
-  left: calc(var(--size) * (-0.57));
-  top: calc(var(--size) * (-0.57));
+  left: calc(var(--icon-size) * (-0.57));
+  top: calc(var(--icon-size) * (-0.57));
 }
 
 .game .developer.d5 {
@@ -353,8 +363,8 @@ h1 {
   font-size: 0.75em;
   padding: 0;
   padding-bottom: 0.15em;
-  left: calc(var(--size) * (-0.44));
-  top: calc(var(--size) * (-0.44));
+  left: calc(var(--icon-size) * (-0.44));
+  top: calc(var(--icon-size) * (-0.44));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -384,13 +394,13 @@ h1 {
 }
 
 .switch {
-  --size: 1em;
+  --font-size: 1em;
   --checked-color: limegreen;
   --unchecked-color: gainsboro;
 
   display: inline-grid;
-  width: calc(var(--size) * 1.55);
-  height: var(--size);
+  width: calc(var(--font-size) * 1.55);
+  height: var(--font-size);
   font-size: inherit;
   margin: 0;
   appearance: none;
@@ -412,7 +422,7 @@ h1 {
 
 /* thumb */
 .switch::after {
-  width: var(--size);
+  width: var(--font-size);
   background: var(--bg-color);
 }
 
