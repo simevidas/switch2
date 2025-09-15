@@ -25,7 +25,7 @@ let games = [
     developer: 1,
   },
   {
-    name: ' Fire Emblem: Fortune’s Weave',
+    name: 'Fire Emblem: Fortune’s Weave',
     path: 'fire-emblem-fortunes-weave',
     image: 'd7afc90a912773cc9d7c74dafef6d035f73dc5b2',
     category: 1.1,
