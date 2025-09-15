@@ -122,7 +122,7 @@ let games = [
     developer: 3,
   },
   {
-    name: ' Pokemon Pokopia',
+    name: 'Pokemon Pokopia',
     path: 'pokemon-pokopia',
     image: '105dbee968248f1e014ceba5da1867d8be656f7e',
     imageType: 'png',
@@ -197,7 +197,7 @@ let games = [
   //   developer: 1,
   // },
   {
-    name: ' Yoshi and the Mysterious Book',
+    name: 'Yoshi and the Mysterious Book',
     path: 'yoshi-and-the-mysterious-book',
     image: '21b8e9952e4047b7c9e594abc2afec2bdcd4b9c0',
     outline: '#42b909',
