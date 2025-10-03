@@ -44,6 +44,6 @@ Nintendo will continue to release new Switch 1 games that can be played on Switc
 
 Whether some of these games are truly Switch 1 games that have been upgraded to Switch 2, or actually Switch 2 games that have been downgraded to Switch 1 is a matter of opinion.
 
-### Does scrolling with the mouse not work?
+### Does scrolling with the mouse work?
 
-Since the page scrolls horizontally instead of vertically, you need to hold down the Shift key while rolling the mouse wheel to scroll the page.
+Yes, it does. You can scroll normally with the mouse wheel.
