@@ -71,3 +71,17 @@ document.addEventListener('click', (ev) => {
     window.addEventListener('pageshow', updateFullscreenSwitch);
   }
 }
+
+const wrapper = document.getElementById('wrapper');
+if (wrapper) {
+  window.addEventListener(
+    'wheel',
+    function (e) {
+      if (e.deltaY !== 0) {
+        e.preventDefault();
+        wrapper.scrollLeft += e.deltaY * 1.5;
+      }
+    },
+    { passive: false }
+  );
+}
