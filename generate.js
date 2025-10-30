@@ -7,6 +7,15 @@ import daysSinceLaunch from './daysSinceLaunch.js';
 // IMPORTANT: sort alphabetically
 let games = [
   {
+    name: 'Animal Crossing: New Horizons – Nintendo Switch 2 Edition',
+    path: 'animal-crossing-new-horizons-nintendo-switch-2-edition',
+    image: '027dd64306a1fb42aae5d16b789dfc01078136ef',
+    category: 2.2,
+    release: '2026-01-15',
+    price: [6.5, 0.5],
+    developer: 1,
+  },
+  {
     name: 'Donkey Kong Bananza',
     path: 'donkey-kong-bananza',
     image: '8086f441c9ba6ef349498840c725aa52e1d40f84',
