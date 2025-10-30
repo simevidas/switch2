@@ -105,7 +105,8 @@ let games = [
     image: '0f14a40d321dbd13fe80d186f30eaa5c7ec432de',
     category: 1.2,
     release: '2025-06-05',
-    price: ['NSO'],
+    price: [0],
+    subscription: true,
     developer: 1,
     multi: 2,
     noline: true,
@@ -234,8 +235,9 @@ let toDevIcon = {
   5: '❓',
 };
 let toPriceIcon = {
-  1: '①',
-  2: '②',
+  0.5: '⑤',
+  1: '⑩',
+  2: '⑳',
 };
 let toMultiIcon = {
   1: '●○',
@@ -265,9 +267,9 @@ for (let game of games) {
   </a>
   ${
     game.price
-      ? `<div class="price">${game.price[0]} ${
-          game.price[1] ? toPriceIcon[game.price[1]] : ''
-        }</div>`
+      ? `<div class="price">${game.price[0] * 10}${
+          game.subscription ? '*' : ''
+        } ${game.price[1] ? toPriceIcon[game.price[1]] : ''}</div>`
       : ''
   }
   ${

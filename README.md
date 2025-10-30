@@ -19,10 +19,10 @@ The source code in this repository is licensed under [CC BY-NC 4.0](https://crea
 
 ### Numbers
 
-| Position            | Meaning                                                                                                                                                                                                              |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| above card          | the day on which the game is released (in the month indicated by the dotted line)                                                                                                                                    |
-| bottom right corner | the price of the game (first number) and the price for the game’s Upgrade Pack (circled number) in tens of euros; games marked with “NSO” can only be accessed (for free) with a Nintendo Switch Online subscription |
+| Position            | Meaning                                                                                                                                                                                                      |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| above card          | the day on which the game is released (in the month indicated by the dotted line)                                                                                                                            |
+| bottom right corner | the price of the game (first number) and the price for the game’s Upgrade Pack (circled number) in euros; games marked with an asterisk (\*) can only be accessed with a Nintendo Switch Online subscription |
 
 ### Super Mario Bros. sprite
 
