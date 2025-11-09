@@ -107,6 +107,7 @@ let games = [
     release: '2025-12-04',
     price: [7, 1],
     developer: 2,
+    shift: -14,
   },
   {
     name: 'Nintendo GameCube – Nintendo Classics',
@@ -139,6 +140,16 @@ let games = [
     release: '2025-10-16',
     price: [7, 1],
     developer: 3,
+  },
+  {
+    name: 'Pokémon Legends: Z-A – Mega Dimension DLC',
+    path: 'pokemon-legends-z-a-mega-dimension',
+    image: 'feea4fa79ebdd752ae023b2230bdbee1e126d1cd',
+    category: 2.2,
+    release: '2025-12-10',
+    price: [3],
+    dlc: true,
+    shift: 6,
   },
   {
     name: 'Pokemon Pokopia',
