@@ -303,9 +303,14 @@ h1 {
   border-top-left-radius: 0.2em;
 }
 
-.game img {
+.game :is(a, img) {
   display: block;
-  max-width: 100%;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.game img {
+  object-fit: cover;
   outline: 1px solid var(--outline, transparent);
   outline-offset: -1px;
 }
@@ -509,7 +514,7 @@ html.js :is(#fullscreen, #today, .game .multi) {
   visibility: visible;
 }
 </style>
-    <meta name="version" content="1.16.0" />
+    <meta name="version" content="1.17.0" />
   </head>
   <body>
     <div id="wrapper">
@@ -652,7 +657,7 @@ html.js :is(#fullscreen, #today, .game .multi) {
   <div class="developer d3">★</div>
   
 </div>
-<div class="game " title="Metroid Prime 4: Beyond – Nintendo Switch 2 Edition" style="--stripe: 4; --days: 182;  " >
+<div class="game " title="Metroid Prime 4: Beyond – Nintendo Switch 2 Edition" style="--stripe: 4; --days: 182; --shift: -14; " >
   <a href="https://www.dekudeals.com/items/metroid-prime-4-beyond-nintendo-switch-2-edition">
     <img src="https://cdn.dekudeals.com/images/2bde1c4156fde72a7a1ac65f021f86ac239bd686/w500.jpg" alt="Metroid Prime 4: Beyond – Nintendo Switch 2 Edition">
   </a>
@@ -686,6 +691,15 @@ html.js :is(#fullscreen, #today, .game .multi) {
   <div class="price">70 ⑩</div>
   <div class="day">16</div>
   <div class="developer d3">★</div>
+  
+</div>
+<div class="game dlc" title="Pokémon Legends: Z-A – Mega Dimension DLC" style="--stripe: 4; --days: 188; --shift: 6; " >
+  <a href="https://www.dekudeals.com/items/pokemon-legends-z-a-mega-dimension">
+    <img src="https://cdn.dekudeals.com/images/feea4fa79ebdd752ae023b2230bdbee1e126d1cd/w500.jpg" alt="Pokémon Legends: Z-A – Mega Dimension DLC">
+  </a>
+  <div class="price">30 </div>
+  <div class="day">10</div>
+  
   
 </div>
 <div class="game " title="Pokemon Pokopia" style="--stripe: 1; --order: 2;  " >
