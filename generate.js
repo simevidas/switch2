@@ -49,7 +49,7 @@ let games = [
     category: 1.1,
     release: '2026',
     developer: 3,
-    order: 3,
+    order: 2,
   },
   {
     name: 'Hyrule Warriors: Age of Imprisonment',
@@ -98,6 +98,7 @@ let games = [
     release: '2026-02-12',
     price: [7],
     developer: 3,
+    shift: -7,
   },
   {
     name: 'Metroid Prime 4: Beyond – Nintendo Switch 2 Edition',
@@ -157,8 +158,9 @@ let games = [
     image: '105dbee968248f1e014ceba5da1867d8be656f7e',
     imageType: 'png',
     category: 1.1,
-    release: '2026',
-    order: 2,
+    release: '2026-03-05',
+    price: [7],
+    shift: 7,
   },
   {
     name: 'Splatoon Raiders',
@@ -167,7 +169,7 @@ let games = [
     category: 1.1,
     release: 'TBD',
     developer: 1,
-    order: 4,
+    order: 3,
   },
   {
     name: 'Super Mario Bros. Wonder – Nintendo Switch 2 Edition + Meetup in Bellabel Park',
