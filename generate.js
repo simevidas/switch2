@@ -28,7 +28,7 @@ let games = [
     name: 'Donkey Kong Bananza: DK Island & Emerald Rush',
     path: 'donkey-kong-bananza-dk-island-and-emerald-rush',
     image: 'eb026e33b8a681871c9f57e4cd39ffc713d58ecc',
-    category: 1.2,
+    category: 1.1,
     release: '2025-09-13',
     price: [2],
     dlc: true,
