@@ -174,11 +174,11 @@ let games = [
   {
     name: 'Super Mario Bros. Wonder – Nintendo Switch 2 Edition + Meetup in Bellabel Park',
     path: 'super-mario-wonder-switch-2-edition',
-    image: 'e532936b7d3b01847a6d22df8bd42a81c06fdf1e',
+    image: '8427d9b27a90cefffdd7d738347d41d8c7e7c2f0',
     category: 2.1,
-    release: 'Spring 2026',
+    release: '2026-03-26',
+    price: [8, 2],
     developer: 1,
-    order: 1,
   },
   {
     name: 'Super Mario Party Jamboree – Nintendo Switch 2 Edition + Jamboree TV',
