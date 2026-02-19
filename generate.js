@@ -229,6 +229,15 @@ let games = [
   //   developer: 1,
   // },
   {
+    name: 'Xenoblade Chronicles X: Definitive Edition — Nintendo Switch 2 Edition',
+    path: 'xenoblade-chronicles-x-definitive-edition-nintendo-switch-2-edition',
+    image: 'a8ef0befbd684ba01fc9d76cc4a84c1b8f914cc7',
+    category: 2.2,
+    release: '2026-02-19',
+    price: [6.5, 0.5],
+    developer: 2,
+  },
+  {
     name: 'Yoshi and the Mysterious Book',
     path: 'yoshi-and-the-mysterious-book',
     image: '21b8e9952e4047b7c9e594abc2afec2bdcd4b9c0',
