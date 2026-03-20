@@ -78,7 +78,7 @@ h3 {
   padding-inline: calc(5 * var(--u)) calc(15 * var(--u));
 
   --1day: calc(0.5 * var(--u));
-  --total-days: 304;
+  --total-days: 365;
   --stripe-margin-left: calc(12 * var(--u));
 }
 
@@ -115,7 +115,10 @@ h1 {
     calc(var(--1day) * 30) calc(var(--1day) * 31) calc(var(--1day) * 30) calc(
       var(--1day) * 31
     )
-    calc(var(--1day) * 31) calc(var(--1day) * 28) calc(var(--1day) * 31);
+    calc(var(--1day) * 31) calc(var(--1day) * 28) calc(var(--1day) * 31) calc(
+      var(--1day) * 30
+    )
+    calc(var(--1day) * 31);
   font-size: smaller;
   margin-left: var(--stripe-margin-left);
   background: linear-gradient(var(--bg-color) 50%, transparent 50%);
@@ -514,7 +517,7 @@ html.js :is(#fullscreen, #today, .game .multi) {
   visibility: visible;
 }
 </style>
-    <meta name="version" content="1.18.2" />
+    <meta name="version" content="1.18.3" />
   </head>
   <body>
     <div id="wrapper">
@@ -531,6 +534,8 @@ html.js :is(#fullscreen, #today, .game .multi) {
           <span>Jan</span>
           <span>Feb</span>
           <span>March</span>
+          <span>April</span>
+          <span>May</span>
           <div id="today"></div>
         </div>
 
@@ -604,9 +609,9 @@ html.js :is(#fullscreen, #today, .game .multi) {
   <div class="developer d1">N</div>
   
 </div>
-<div class="game " title="Fire Emblem: Fortune’s Weave" style="--stripe: 1; --order: 2;  " >
+<div class="game " title="Fire Emblem: Fortune’s Weave" style="--stripe: 1; --order: 1;  " >
   <a href="https://www.dekudeals.com/items/fire-emblem-fortunes-weave">
-    <img src="https://cdn.dekudeals.com/images/d7afc90a912773cc9d7c74dafef6d035f73dc5b2/w500.jpg" alt="Fire Emblem: Fortune’s Weave">
+    <img src="/assets/fire-emblem-fortunes-weave.jpg" alt="Fire Emblem: Fortune’s Weave">
   </a>
   
   <div class="releases">2026</div>
@@ -712,6 +717,15 @@ html.js :is(#fullscreen, #today, .game .multi) {
   
   
 </div>
+<div class="game " title="Pokemon Winds and Pokemon Waves" style="--stripe: 1; --order: 2;  " >
+  <a href="https://www.dekudeals.com/items/pokemon-winds">
+    <img src="/assets/pokemon-winds-waves.jpg" alt="Pokemon Winds and Pokemon Waves">
+  </a>
+  
+  <div class="releases">2027</div>
+  <div class="developer d3">★</div>
+  
+</div>
 <div class="game " title="Splatoon Raiders" style="--stripe: 1; --order: 3;  " >
   <a href="https://www.dekudeals.com/items/splatoon-raiders">
     <img src="https://cdn.dekudeals.com/images/9ba330082ff09366452d80dac03235dbc65c379b/w500.jpg" alt="Splatoon Raiders">
@@ -766,12 +780,12 @@ html.js :is(#fullscreen, #today, .game .multi) {
   <div class="developer d2">N</div>
   
 </div>
-<div class="game " title="Yoshi and the Mysterious Book" style="--stripe: 1; --order: 1;  --outline: #42b909;" >
+<div class="game " title="Yoshi and the Mysterious Book" style="--stripe: 1; --days: 350;  " >
   <a href="https://www.dekudeals.com/items/yoshi-and-the-mysterious-book">
-    <img src="https://cdn.dekudeals.com/images/21b8e9952e4047b7c9e594abc2afec2bdcd4b9c0/w500.jpg" alt="Yoshi and the Mysterious Book">
+    <img src="https://cdn.dekudeals.com/images/8744203c18bcb2f50b7893fcd1f8e71eb3480a46/w500.jpg" alt="Yoshi and the Mysterious Book">
   </a>
-  
-  <div class="releases">Spring 2026</div>
+  <div class="price">60 </div>
+  <div class="day">21</div>
   <div class="developer d5">❓</div>
   
 </div>
