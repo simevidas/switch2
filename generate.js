@@ -45,11 +45,11 @@ let games = [
   {
     name: 'Fire Emblem: Fortune’s Weave',
     path: 'fire-emblem-fortunes-weave',
-    image: 'd7afc90a912773cc9d7c74dafef6d035f73dc5b2',
+    image: '/assets/fire-emblem-fortunes-weave.jpg',
     category: 1.1,
     release: '2026',
     developer: 3,
-    order: 2,
+    order: 1,
   },
   {
     name: 'Hyrule Warriors: Age of Imprisonment',
@@ -163,6 +163,16 @@ let games = [
     shift: 7,
   },
   {
+    name: 'Pokemon Winds and Pokemon Waves',
+    path: 'pokemon-winds',
+    image: '/assets/pokemon-winds-waves.jpg',
+    imageType: 'png',
+    category: 1.1,
+    release: '2027',
+    developer: 3,
+    order: 2,
+  },
+  {
     name: 'Splatoon Raiders',
     path: 'splatoon-raiders',
     image: '9ba330082ff09366452d80dac03235dbc65c379b',
@@ -240,10 +250,10 @@ let games = [
   {
     name: 'Yoshi and the Mysterious Book',
     path: 'yoshi-and-the-mysterious-book',
-    image: '21b8e9952e4047b7c9e594abc2afec2bdcd4b9c0',
-    outline: '#42b909',
+    image: '8744203c18bcb2f50b7893fcd1f8e71eb3480a46',
     category: 1.1,
-    release: 'Spring 2026',
+    release: '2026-05-21',
+    price: [6],
     developer: 5,
     order: 1,
   },
@@ -289,7 +299,7 @@ for (let game of games) {
   }" ${game.multi && game.multi > 1 ? 'hidden' : ''}>
   <a href="https://www.dekudeals.com/items/${game.path}">
     <img src="${
-      game.image.startsWith('https')
+      game.image.startsWith('/')
         ? game.image
         : `https://cdn.dekudeals.com/images/${game.image}/w500.${
             game.imageType || 'jpg'
