@@ -1,34 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
     <meta name="viewport" content="width=device-width" />
-    <title>Icon</title>
+    <title></title>
+
     <style>
-      div {
-        display: grid;
-        place-items: center;
-        width: 512px;
-        height: 512px;
-        outline: 1px solid gray;
+      h1 {
+        font-size: 15em;
+        font-family: serif;
+        color: black;
+        letter-spacing: -0.05em;
       }
 
       span {
-        font-family: Helvetica;
-        font-size: var(--size);
-        font-weight: 1;
-        scale: 205% 100%;
-        color: white;
-        -webkit-text-stroke: black 0.035em;
+        font-family: Arial;
+        color: crimson;
+        -webkit-text-stroke: 0.1em currentColor;
+        font-size: 0.77em;
+      }
 
-        --size: 20em;
+      body {
+        display: grid;
+        place-items: center;
+        height: 100svh;
+        margin: 0;
       }
     </style>
   </head>
   <body>
-    <div>
-      <span>{</span>
-    </div>
+    <h1>{<span>2</span>}</h1>
   </body>
 </html>
