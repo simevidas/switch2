@@ -52,6 +52,14 @@ let games = [
     order: 1,
   },
   {
+    name: 'Fitness Boxing 3: Your Personal Trainer',
+    path: 'drag-x-drive',
+    image: '/assets/fitness-boxing-3.jpg',
+    category: 2.2,
+    release: '2026-07-16',
+    developer: 4,
+  },
+  {
     name: 'Hyrule Warriors: Age of Imprisonment',
     path: 'hyrule-warriors-age-of-imprisonment',
     image: '0961f8985e8c808e0cb0ae546c6d3fb19c67e99c',
@@ -155,8 +163,7 @@ let games = [
   {
     name: 'Pokemon Pokopia',
     path: 'pokemon-pokopia',
-    image: '105dbee968248f1e014ceba5da1867d8be656f7e',
-    imageType: 'png',
+    image: 'be474116c979afae06b5670cc27937555147f117',
     category: 1.1,
     release: '2026-03-05',
     price: [7],
@@ -175,11 +182,22 @@ let games = [
   {
     name: 'Splatoon Raiders',
     path: 'splatoon-raiders',
-    image: '9ba330082ff09366452d80dac03235dbc65c379b',
+    image: '7a30dd9a431ec4c530654e9cccbdb224ccff497a',
     category: 1.1,
-    release: 'TBD',
+    release: '2026-07-23',
     developer: 1,
-    order: 3,
+    price: [5],
+    shift: 3,
+  },
+  {
+    name: 'Star Fox',
+    path: 'star-fox',
+    image: '6bb970fe5eeef1abdec039d8f9353aaa7ef654c2',
+    category: 1.1,
+    release: '2026-06-25',
+    developer: 1,
+    price: [5],
+    shift: -4,
   },
   {
     name: 'Super Mario Bros. Wonder – Nintendo Switch 2 Edition + Meetup in Bellabel Park',
@@ -256,6 +274,7 @@ let games = [
     price: [6],
     developer: 5,
     order: 1,
+    shift: -4,
   },
 ];
 
