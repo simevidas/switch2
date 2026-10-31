@@ -254,7 +254,8 @@ let games = [
     path: 'the-legend-of-zelda-the-ocarina-of-time',
     image: '7c6e058e9354fe2e281c77e59c128e8a7356aed4',
     category: 1.1,
-    release: '2026',
+    release: '2026-11-05',
+    price: [6],
     order: 1,
   },
 
